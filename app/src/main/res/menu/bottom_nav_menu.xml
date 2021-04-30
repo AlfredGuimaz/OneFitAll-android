@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/miHome"
+        android:title="@string/bm_home"
+        android:icon="@drawable/ic_home" />
+
+    <item android:id="@+id/miWorkout"
+        android:title="@string/bm_workout"
+        android:icon="@drawable/ic_workout"/>
+
+    <item android:id="@+id/placeholder"
+        android:title=""/>
+
+    <item android:id="@+id/miJournal"
+        android:title="@string/bm_journal"
+        android:icon="@drawable/ic_pen" />
+
+    <item android:id="@+id/miSettings"
+        android:title="@string/bm_settings"
+        android:icon="@drawable/ic_settings"/>
+
+</menu>

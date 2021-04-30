@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">One-Fit-All</string>
+
+    //workout card titles
+    <string name="createWorkoutCard"> Create Workout </string>
+    <string name="supportCreateWC"> Have a recurring workout? Add it here! Or maybe trying to fit in a workout in you day? Get some quick GAINS! </string>
+    <string name="viewWorkouts"> View Workouts </string>
+    <string name="quickWorkout"> Quick Workout </string>
+    //calorie burner titles
+    <string name="calorieBurnerCard"> Calorie Burner </string>
+    <string name="supportCalorieBC"> Record how many calories you have burned here! Make sure to update to keep track of your progress. </string>
+    <string name="calorieBurner"> Update Calories </string>
+    //calorie counter titles
+    <string name="calorieCounterCard"> Calorie Counter </string>
+    <string name="supportCalorieCC"> Record the intake of calories here! Make sure to keep track of your progress. </string>
+
+    //bottom menu nav
+    <string name="bm_home">Home</string>
+    <string name="bm_workout">Workout</string>
+    <string name="bm_journal">Journal</string>
+    <string name="bm_settings">Settings</string>
+    <string name="userInch">User Inch</string>
+    <string name="userFt">User Ft</string>
+    <string name="Update">update</string>
+    <string name="View_Data">viewData</string>
+</resources>

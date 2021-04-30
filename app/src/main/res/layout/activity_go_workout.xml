@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".goWorkoutActivity">
+
+    <!--Main View Were content Goes -->
+    <ScrollView
+        android:id="@+id/workoutScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="675dp"
+        android:layout_marginBottom="25dp">
+        <!-- Used to stack cards -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <!-- Create Workout/Quick Workout Card(Might rename) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/createWorkoutCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+                        <!-- Main Title -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/createWorkoutCard"
+                            android:textAppearance="?attr/textAppearanceHeadline6" />
+                        <!-- Description of function -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/supportCreateWC"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            android:textColor="?android:attr/textColorSecondary" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:orientation="horizontal">
+                        <!-- New Workout Button -->
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/viewWorkouts"
+                            style="?attr/borderlessButtonStyle"
+                            android:layout_width="105dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginEnd="8dp"
+                            android:text="@string/viewWorkouts"/>
+                        <!-- Quick Workout Button -->
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/quickWorkout"
+                            style="?attr/borderlessButtonStyle"
+                            android:layout_width="105dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginEnd="8dp"
+                            android:text="@string/quickWorkout"
+                            android:onClick="goQuickWorkout"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Calorie Burner Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/calorieBurnerCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+                        <!-- Main Title -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/calorieBurnerCard"
+                            android:textAppearance="?attr/textAppearanceHeadline6" />
+                        <!-- Description of function -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/supportCalorieBC"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            android:textColor="?android:attr/textColorSecondary" />
+                        <!-- Progress Bar -->
+                        <ProgressBar
+                            android:id="@+id/burnerProgressBar"
+                            android:layout_width="350dp"
+                            android:layout_height="15sp"
+                            android:layout_marginTop="10dp"
+                            style="?android:attr/progressBarStyleHorizontal"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:orientation="horizontal">
+                        <!-- Update Calories Button -->
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/calorieBurnerButton"
+                            style="?attr/borderlessButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="8dp"
+                            android:text="@string/calorieBurner"
+                            android:onClick="goCaloriesBurned"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Calorie Counter Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/calorieCounterCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+                        <!-- Main Title -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/calorieCounterCard"
+                            android:textAppearance="?attr/textAppearanceHeadline6" />
+                        <!-- Description of function -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/supportCalorieCC"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            android:textColor="?android:attr/textColorSecondary" />
+                        <!-- Progress Bar -->
+                        <ProgressBar
+                            android:id="@+id/counterProgressBar"
+                            android:layout_width="350dp"
+                            android:layout_height="15sp"
+                            android:layout_marginTop="10dp"
+                            style="?android:attr/progressBarStyleHorizontal"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:orientation="horizontal">
+                        <!-- Update Calories Button -->
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/calorieCounterButton"
+                            style="?attr/borderlessButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="8dp"
+                            android:text="@string/calorieBurner"
+                            android:onClick="goCalorieCounter"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <!--Bottom App bar -->
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:fabCradleMargin="15dp"
+        app:fabCradleRoundedCornerRadius="20dp"
+        app:fabCradleVerticalOffset="5dp">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00000000"
+            app:elevation="0dp"
+            android:visibility="visible"
+            app:menu="@menu/bottom_nav_menu" />
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
+    <!--Flouting Add Button    -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add"
+        app:layout_anchor="@id/bottomAppBar"
+        android:contentDescription="TODO"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".goCaloriesBurned">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Main Title -->
+        <TextView
+            android:id="@+id/welcomeBurner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="Calorie Burner"
+            android:textSize="30sp"/>
+
+        <!-- Met Level Input -->
+        <!-- <EditText
+            android:id="@+id/metLevel"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/welcomeBurner"
+            android:layout_toRightOf="@id/metText"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"
+            android:hint="1.0 - 16.0"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:textColorHint="#E6999999"
+            android:textColor="@color/white"
+            android:background="#80999999"/> -->
+        
+        <SeekBar
+            android:id="@+id/metSeekBar"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:max="16"
+            android:progress="8"
+            android:layout_below="@+id/welcomeBurner"
+            android:layout_toRightOf="@id/metText"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="50dp" />
+
+        <!-- Met Level Text -->
+        <TextView
+            android:id="@+id/metText"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Met Level:"
+            android:gravity="center"
+            android:layout_below="@+id/welcomeBurner"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="35dp"
+            android:textSize="20sp" />
+
+        <!-- Weight Input -->
+        <EditText
+            android:id="@+id/weightKg"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/activityDuration"
+            android:layout_toRightOf="@id/weightText"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:hint="Weight in kg"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:textColorHint="#E6999999"
+            android:textColor="@color/white"
+            android:background="#80999999"/>
+
+        <!-- Weight Text -->
+        <TextView
+            android:id="@+id/weightText"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="  Weight: "
+            android:gravity="center"
+            android:layout_below="@+id/activityDurationText"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="35dp"
+            android:textSize="20sp" />
+
+        <!-- Activity Duration Input -->
+        <EditText
+            android:id="@+id/activityDuration"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/metSeekBar"
+            android:layout_toRightOf="@id/activityDurationText"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:hint="Duration in mins"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:textColorHint="#E6999999"
+            android:textColor="@color/white"
+            android:background="#80999999"/>
+
+        <!-- Activity Duration Text -->
+        <TextView
+            android:id="@+id/activityDurationText"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Duration:"
+            android:gravity="center"
+            android:layout_below="@+id/metText"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="35dp"
+            android:textSize="20sp" />
+
+        <!-- Calculate Button -->
+        <Button
+            android:id="@+id/enterBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/weightKg"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="75dp"
+            android:gravity="center"
+            android:text="Calculate"/>
+
+        <!-- Reset Button -->
+        <Button
+            android:id="@+id/resetBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/weightKg"
+            android:layout_toRightOf="@id/enterBtn"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="25dp"
+            android:gravity="center"
+            android:text="Reset"/>
+
+        <!-- Result Text -->
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/enterBtn"
+            android:layout_marginTop="25dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="Results"
+            android:textSize="15sp"/>
+
+
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

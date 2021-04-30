@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".countdownTimer">
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/setText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"
+            android:textSize="50sp"
+            />
+
+        <ProgressBar
+            android:id="@+id/progressBarWork"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="270dp"
+            android:layout_height="270dp"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/drawable_circle_purple"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="100"
+            android:progressDrawable="@drawable/drawable_circle_teal"
+            android:rotation="-90" />
+
+        <TextView
+            android:id="@+id/textViewTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="125dp"
+            android:layout_centerHorizontal="true"
+            android:hint="99:99:99"
+            android:textColor="@color/teal_700"
+            android:textSize="40sp" />
+
+        <ImageView
+            android:id="@+id/imageViewReset"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/textViewTime"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/ic_replay"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/imageViewStartStop"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/progressBarWork"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_play"
+            android:layout_centerInParent="true"/>
+
+        <ProgressBar
+            android:id="@+id/progressBarRest"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="270dp"
+            android:layout_height="270dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/imageViewStartStop"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/drawable_circle_purple"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="100"
+            android:progressDrawable="@drawable/drawable_circle_teal"
+            android:rotation="-90"/>
+
+        <TextView
+            android:id="@+id/viewRestTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="125dp"
+            android:layout_below="@+id/imageViewStartStop"
+            android:layout_centerHorizontal="true"
+            android:hint="99:99:99"
+            android:textColor="@color/teal_700"
+            android:textSize="40sp" />
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

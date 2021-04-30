@@ -1,0 +1,96 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textAlignment="center"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="690dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/Update"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Age"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="130dp"
+            android:hint="@string/Update"
+            android:text="Update" />
+
+        <Button
+            android:id="@+id/ViewData"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/Update"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:hint="@string/View_Data"
+            android:text="View Data" />
+
+
+        <EditText
+            android:id="@+id/Weight"
+            android:layout_width="300dp"
+            android:layout_height="73dp"
+            android:layout_below="@+id/Name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="User Weight"
+            android:inputType="textPersonName" />
+
+
+        <EditText
+            android:id="@+id/Age"
+            android:layout_width="300dp"
+            android:layout_height="73dp"
+            android:layout_below="@+id/Weight"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="User Age"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/Feet"
+            android:layout_width="145dp"
+            android:layout_height="73dp"
+            android:layout_below="@id/Age"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="User Feet"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/Inch"
+            android:layout_width="145dp"
+            android:layout_height="73dp"
+            android:layout_below="@id/Age"
+            android:layout_marginLeft="235dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="User Inch"
+            android:inputType="number" />
+
+
+        <EditText
+            android:id="@+id/Name"
+            android:layout_width="300dp"
+            android:layout_height="73dp"
+            android:layout_below="@+id/Logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="52dp"
+            android:ems="10"
+            android:hint="User Name"
+            android:inputType="textPersonName" />
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
