@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name">One-Fit-All</string>
 
+    //Spotify playlists options
+    <string name="spinner_prompt">Choose a playlist</string>
+    <string-array name="playlists">
+        <item>Choose a playlist</item>
+        <item>Workout – 120 BPM</item>
+        <item>Born To Run 150 BPM</item>
+        <item>160 BPM Running Pop</item>
+        <item>Run \'N\' Bass 170 – 175 BPM</item>
+        <item>180 bpm born to run</item>
+
+    </string-array>
+
     //workout card titles
     <string name="createWorkoutCard"> Create Workout </string>
     <string name="supportCreateWC"> Have a recurring workout? Add it here! Or maybe trying to fit in a workout in you day? Get some quick GAINS! </string>

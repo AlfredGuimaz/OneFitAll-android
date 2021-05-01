@@ -8,6 +8,49 @@
     tools:context=".MainActivity">
 
     <!--Main View Were content Goes -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:onClick="previousSong"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="400dp"
+        android:text="Previous" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:onClick="pauseOrResumeSong"
+        android:layout_gravity="center"
+        android:layout_marginTop="115dp"
+        android:text="Pause" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:onClick="play"
+        android:layout_gravity="center"
+        android:text="Play" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_gravity="right"
+        android:onClick="skipSong"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="400dp"
+        android:text="Next" />
+
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
@@ -97,5 +140,14 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_add"
         app:layout_anchor="@id/bottomAppBar" />
+
+    <Spinner
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="170dp"/>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

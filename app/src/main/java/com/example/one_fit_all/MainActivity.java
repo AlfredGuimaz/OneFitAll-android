@@ -15,15 +15,20 @@ import com.spotify.android.appremote.api.Connector;
 import com.spotify.android.appremote.api.SpotifyAppRemote;
 
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 //import android.widget.TextView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 
 import com.spotify.protocol.client.Subscription;
 import com.spotify.protocol.types.PlayerState;
 import com.spotify.protocol.types.Track;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
     private static final String CLIENT_ID = "f41123809dce4bd29b99d34220e91140";
     private static final String REDIRECT_URI = "http://localhost:8888/callback";
     private SpotifyAppRemote mSpotifyAppRemote;
+    private static boolean playing;
+    private String selected;
+    Spinner spotifySpinner;
+    List<String> playlists;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,10 +89,32 @@ public class MainActivity extends AppCompatActivity {
 */
         setContentView(R.layout.activity_main);
 
+        playlists = new ArrayList<String>();
+        spotifySpinner = (Spinner) findViewById(R.id.spinner);
+
+        String pl1 = "Workout – 120 BPM";
+        String pl2 = "Born To Run 150 BPM";
+        String pl3 = "160 BPM Running Pop";
+        String pl4 = "Run 'N' Bass 170 – 175 BPM";
+        String pl5 = "180 bpm born to run";
+        playlists.add(pl1);
+        playlists.add(pl2);
+        playlists.add(pl3);
+        playlists.add(pl4);
+        playlists.add(pl5);
+
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(MainActivity.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.playlists));
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spotifySpinner.setEnabled(true);
+        spotifySpinner.setClickable(true);
+        spotifySpinner.setAdapter(myAdapter);
+
         //Bottom Navagation
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.miHome);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
@@ -142,10 +173,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onConnected(SpotifyAppRemote spotifyAppRemote) {
                         mSpotifyAppRemote = spotifyAppRemote;
                         Log.d("MainActivity", "Connected!");
-
-                        // Now you can start interacting with App Remote
                         connected();
-
                     }
 
                     public void onFailure(Throwable throwable) {
@@ -157,23 +185,51 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void connected(){
-        //plays a hardcoded playlist
-        //mSpotifyAppRemote.getPlayerApi().play("spotify:track:1BpKJw4RZxaFB88NE5uxXf");
-
-        // Subscribe to PlayerState
-       /* mSpotifyAppRemote.getPlayerApi()
-                .subscribeToPlayerState()
-                .setEventCallback(playerState -> {
-                    final Track track = playerState.track;
-                    if (track != null) {
-                        Log.d("MainActivity", track.name + " by " + track.artist.name);
-                    }
-                });*/
+        playing = false;
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+        mSpotifyAppRemote.getPlayerApi().pause();
         SpotifyAppRemote.disconnect(mSpotifyAppRemote);
+    }
+
+    public void play(View v){
+        selected = spotifySpinner.getSelectedItem().toString();
+
+        if(selected.equals(playlists.get(0))){
+            mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:1vdkPd9esYFohPkUxcrUDa");
+        }else if(selected.equals(playlists.get(1))){
+            mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:37i9dQZF1DX0hWmn8d5pRe");
+        }else if(selected.equals(playlists.get(2))){
+            mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:6Lzq35kGAEGCupFkxbZVAQ");
+        }else if(selected.equals(playlists.get(3))){
+            mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:37i9dQZF1DX8jnAPF7Iiqp");
+        }else if(selected.equals(playlists.get(4))){
+            mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:48vCjagB5NXob0LeRz4uUa");
+        }
+    }
+    /*
+    LIMITATIONS: user can only skip 6 songs per hour because of the free version
+    and they must listen to playlists and albums on shuffle
+    and they cannot skip ads.
+     */
+    public void skipSong(View v){
+        mSpotifyAppRemote.getPlayerApi().skipNext();
+    }
+
+    public void pauseOrResumeSong(View v){
+        if(playing == true){
+            mSpotifyAppRemote.getPlayerApi().pause();
+            playing = false;
+        }else{
+            mSpotifyAppRemote.getPlayerApi().resume();
+            playing = true;
+        }
+    }
+
+    public void previousSong(View v){
+        mSpotifyAppRemote.getPlayerApi().skipPrevious();
     }
 }
