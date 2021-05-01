@@ -34,6 +34,15 @@
         android:text="Pause" />
 
     <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="110dp"
+        android:layout_height="70dp"
+        android:onClick="logout"
+        android:layout_gravity="center"
+        android:layout_marginTop="330dp"
+        android:text="Log Out of Spotify" />
+
+    <Button
         android:id="@+id/button7"
         android:layout_width="110dp"
         android:layout_height="50dp"

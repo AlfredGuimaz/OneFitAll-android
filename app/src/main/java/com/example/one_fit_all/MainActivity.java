@@ -8,11 +8,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.content.SharedPreferences;
+
+import com.android.volley.toolbox.Authenticator;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import com.spotify.android.appremote.api.ConnectionParams;
 import com.spotify.android.appremote.api.Connector;
 import com.spotify.android.appremote.api.SpotifyAppRemote;
+//import com.spotify.sdk.*;
 
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -26,6 +29,9 @@ import android.widget.Toast;
 import com.spotify.protocol.client.Subscription;
 import com.spotify.protocol.types.PlayerState;
 import com.spotify.protocol.types.Track;
+import com.spotify.sdk.android.auth.AuthorizationClient;
+import com.spotify.sdk.android.auth.AuthorizationRequest;
+import com.spotify.sdk.android.auth.AuthorizationResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -231,5 +237,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void previousSong(View v){
         mSpotifyAppRemote.getPlayerApi().skipPrevious();
+    }
+
+    public void logout(View v){
+        AuthorizationRequest.Builder builder = new AuthorizationRequest.Builder(CLIENT_ID, AuthorizationResponse.Type.TOKEN, REDIRECT_URI);
+
+        builder.setScopes(new String[]{"streaming"});
+        builder.setShowDialog(true);
+        AuthorizationRequest request = builder.build();
+
+        AuthorizationClient.openLoginInBrowser(this,request);
     }
 }
