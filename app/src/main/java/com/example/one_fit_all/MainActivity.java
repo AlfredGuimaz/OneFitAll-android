@@ -164,88 +164,88 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        ConnectionParams connectionParams =
-                new ConnectionParams.Builder(CLIENT_ID)
-                        .setRedirectUri(REDIRECT_URI)
-                        .showAuthView(true)
-                        .build();
-
-        SpotifyAppRemote.connect(this, connectionParams,
-                new Connector.ConnectionListener() {
-
-                    public void onConnected(SpotifyAppRemote spotifyAppRemote) {
-                        mSpotifyAppRemote = spotifyAppRemote;
-                        Log.d("MainActivity", "Connected!");
-                        connected();
-                    }
-
-                    public void onFailure(Throwable throwable) {
-                        Log.e("MyActivity", throwable.getMessage(), throwable);
-
-                        // Something went wrong when attempting to connect! Handle errors here
-                    }
-                });
-    }
-
-    protected void connected(){
-        playing = false;
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        mSpotifyAppRemote.getPlayerApi().pause();
-        SpotifyAppRemote.disconnect(mSpotifyAppRemote);
-    }
-
-    public void play(View v){
-        selected = spotifySpinner.getSelectedItem().toString();
-
-        if(selected.equals(playlists.get(0))){
-            mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:1vdkPd9esYFohPkUxcrUDa");
-        }else if(selected.equals(playlists.get(1))){
-            mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:37i9dQZF1DX0hWmn8d5pRe");
-        }else if(selected.equals(playlists.get(2))){
-            mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:6Lzq35kGAEGCupFkxbZVAQ");
-        }else if(selected.equals(playlists.get(3))){
-            mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:37i9dQZF1DX8jnAPF7Iiqp");
-        }else if(selected.equals(playlists.get(4))){
-            mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:48vCjagB5NXob0LeRz4uUa");
-        }
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        ConnectionParams connectionParams =
+//                new ConnectionParams.Builder(CLIENT_ID)
+//                        .setRedirectUri(REDIRECT_URI)
+//                        .showAuthView(true)
+//                        .build();
+//
+//        SpotifyAppRemote.connect(this, connectionParams,
+//                new Connector.ConnectionListener() {
+//
+//                    public void onConnected(SpotifyAppRemote spotifyAppRemote) {
+//                        mSpotifyAppRemote = spotifyAppRemote;
+//                        Log.d("MainActivity", "Connected!");
+//                        connected();
+//                    }
+//
+//                    public void onFailure(Throwable throwable) {
+//                        Log.e("MyActivity", throwable.getMessage(), throwable);
+//
+//                        // Something went wrong when attempting to connect! Handle errors here
+//                    }
+//                });
+//    }
+//
+//    protected void connected(){
+//        playing = false;
+//    }
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        mSpotifyAppRemote.getPlayerApi().pause();
+//        SpotifyAppRemote.disconnect(mSpotifyAppRemote);
+//    }
+//
+//    public void play(View v){
+//        selected = spotifySpinner.getSelectedItem().toString();
+//
+//        if(selected.equals(playlists.get(0))){
+//            mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:1vdkPd9esYFohPkUxcrUDa");
+//        }else if(selected.equals(playlists.get(1))){
+//            mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:37i9dQZF1DX0hWmn8d5pRe");
+//        }else if(selected.equals(playlists.get(2))){
+//            mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:6Lzq35kGAEGCupFkxbZVAQ");
+//        }else if(selected.equals(playlists.get(3))){
+//            mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:37i9dQZF1DX8jnAPF7Iiqp");
+//        }else if(selected.equals(playlists.get(4))){
+//            mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:48vCjagB5NXob0LeRz4uUa");
+//        }
+//    }
     /*
     LIMITATIONS: user can only skip 6 songs per hour because of the free version
     and they must listen to playlists and albums on shuffle
     and they cannot skip ads.
      */
-    public void skipSong(View v){
-        mSpotifyAppRemote.getPlayerApi().skipNext();
-    }
-
-    public void pauseOrResumeSong(View v){
-        if(playing == true){
-            mSpotifyAppRemote.getPlayerApi().pause();
-            playing = false;
-        }else{
-            mSpotifyAppRemote.getPlayerApi().resume();
-            playing = true;
-        }
-    }
-
-    public void previousSong(View v){
-        mSpotifyAppRemote.getPlayerApi().skipPrevious();
-    }
-
-    public void logout(View v){
-        AuthorizationRequest.Builder builder = new AuthorizationRequest.Builder(CLIENT_ID, AuthorizationResponse.Type.TOKEN, REDIRECT_URI);
-
-        builder.setScopes(new String[]{"streaming"});
-        builder.setShowDialog(true);
-        AuthorizationRequest request = builder.build();
-
-        AuthorizationClient.openLoginInBrowser(this,request);
-    }
+//    public void skipSong(View v){
+//        mSpotifyAppRemote.getPlayerApi().skipNext();
+//    }
+//
+//    public void pauseOrResumeSong(View v){
+//        if(playing == true){
+//            mSpotifyAppRemote.getPlayerApi().pause();
+//            playing = false;
+//        }else{
+//            mSpotifyAppRemote.getPlayerApi().resume();
+//            playing = true;
+//        }
+//    }
+//
+//    public void previousSong(View v){
+//        mSpotifyAppRemote.getPlayerApi().skipPrevious();
+//    }
+//
+//    public void logout(View v){
+//        AuthorizationRequest.Builder builder = new AuthorizationRequest.Builder(CLIENT_ID, AuthorizationResponse.Type.TOKEN, REDIRECT_URI);
+//
+//        builder.setScopes(new String[]{"streaming"});
+//        builder.setShowDialog(true);
+//        AuthorizationRequest request = builder.build();
+//
+//        AuthorizationClient.openLoginInBrowser(this,request);
+//    }
 }
