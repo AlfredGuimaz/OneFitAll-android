@@ -37,6 +37,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/StepHeader"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="500 Step "
@@ -59,7 +60,7 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!--            -->
+            <!-- Spotify card-->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -68,7 +69,7 @@
                 android:layout_marginRight="10dp"
                 app:cardCornerRadius="5dp"
                 app:contentPadding="20dp">
-
+                <!--                -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -149,9 +150,8 @@
 
 
 
-
+        <!--End of the cards        -->
         </LinearLayout>
-
     </ScrollView>
     
     <!--Bottom App bar -->
