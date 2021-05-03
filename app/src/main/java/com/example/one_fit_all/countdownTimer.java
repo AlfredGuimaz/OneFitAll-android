@@ -42,7 +42,6 @@ public class countdownTimer extends AppCompatActivity implements View.OnClickLis
 
 
     private CountDownTimer workTimer;
-    private CountDownTimer restTimer;
 
     private int workmin;
     private int restmin;
@@ -189,7 +188,13 @@ public class countdownTimer extends AppCompatActivity implements View.OnClickLis
 
     //
     private void startRestTimer(){
-        restTimer = new CountDownTimer(restCountInMilliSeconds, 1000) {
+        /*sets--;
+
+                workTimerStatus = TimerStatus.STARTED;
+                startWorkTimer();*/
+        // changing stop icon to start icon
+        // changing the timer status to stopped
+        CountDownTimer restTimer = new CountDownTimer(restCountInMilliSeconds, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 viewRestTime.setText(timeFormatter(millisUntilFinished));
