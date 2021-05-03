@@ -180,6 +180,7 @@
                             android:layout_height="15sp"
                             android:layout_marginTop="10dp"
                             style="?android:attr/progressBarStyleHorizontal"/>
+
                     </LinearLayout>
 
                     <LinearLayout

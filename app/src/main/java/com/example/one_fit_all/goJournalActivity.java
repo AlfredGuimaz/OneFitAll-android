@@ -51,6 +51,34 @@ public class goJournalActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
 
+        //Bottom Navagation
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.miJournal);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.miWorkout:
+                        startActivity(new Intent(getApplicationContext(), goWorkoutActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.miHome:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.miJournal:
+
+                        return true;
+                    case R.id.miSettings:
+                        startActivity(new Intent(getApplicationContext(), goSettingsActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+                return false;
+            }
+        });
+
+
 
 
 
@@ -101,6 +129,8 @@ public class goJournalActivity extends AppCompatActivity {
     }
 
 }
+
+
 
 // See If we can add the bottom navigation later
 
