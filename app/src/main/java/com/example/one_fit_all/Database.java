@@ -1,12 +1,15 @@
 package com.example.one_fit_all;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.text.Editable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.jar.Attributes;
 
 import androidx.annotation.Nullable;
 
@@ -64,8 +67,28 @@ public class Database extends SQLiteOpenHelper {
         }
     }
 
+    public boolean updateDB(String name, int weight, int age, int feet, int inch) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_USER_NAME, name);
+        contentValues.put(COLUMN_USER_WEIGHT, weight);
+        contentValues.put(COLUMN_USER_AGE, age);
+        contentValues.put(COLUMN_USER_FEET, feet);
+        contentValues.put(COLUMN_USER_INCH, inch);
+        // contentValues.put(COLUMN_USER_GENDER, customerClass.getGender())
+        db.update(USER_TABLE, contentValues, "name=?", new String[] {name});
 
-    public List<CustomerClass> getEveryone() {
+        return true;
+    }
+
+
+
+    public Cursor getData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(USER_TABLE, null);
+        return cursor;
+    }
+   /* public List<CustomerClass> getEveryone() {
         List<CustomerClass> returnList = new ArrayList<>();
         String queryString = "Select * From " + USER_TABLE;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -95,6 +118,6 @@ public class Database extends SQLiteOpenHelper {
         return returnList;
 
     }
-
+*/
 
 }
