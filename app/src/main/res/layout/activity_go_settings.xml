@@ -6,6 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".goSettingsActivity">
 
+    <!--Main uhh what is it called Oh main Content-->
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="675dp"
+        android:layout_marginBottom="25dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:text="Settings"
+          android:textSize="65dp"
+          android:textAlignment="center"
+          android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/userinfo"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"
+            android:text="User Info"
+            android:textSize="20dp"
+            android:onClick="UserInfo"/>
+
+
+    </LinearLayout>
+    </ScrollView>
+
+
     <!--Bottom App bar -->
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
@@ -36,11 +73,6 @@
         android:src="@drawable/ic_add"
         app:layout_anchor="@id/bottomAppBar"
         android:contentDescription="TODO"/>
-    <!-- Main View -->
-    <TextView
-        android:text="Settings"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="100sp"/>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
