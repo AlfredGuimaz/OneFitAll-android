@@ -16,7 +16,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
             android:gravity="center"
-            android:text="Calorie Intake"
+            android:text="Calorie Counter"
             android:textSize="30sp"/>
 
         <TextView

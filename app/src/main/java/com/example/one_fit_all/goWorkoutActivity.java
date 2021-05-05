@@ -83,4 +83,9 @@ public class goWorkoutActivity extends AppCompatActivity {
         Intent intent = new Intent(this, goQuickWorkout.class);
         startActivity(intent);
     }
+
+    public void goViewWorkout(View view){
+        Intent intent = new Intent(this, goViewWorkout.class);
+        startActivity(intent);
+    }
 }
