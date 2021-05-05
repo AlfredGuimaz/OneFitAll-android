@@ -182,8 +182,12 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_add"
+        android:src="@drawable/ic_smiley"
+        android:scaleType="center"
+        app:fabSize="normal"
+        app:maxImageSize="40dp"
         app:layout_anchor="@id/bottomAppBar" />
+
 
 
 

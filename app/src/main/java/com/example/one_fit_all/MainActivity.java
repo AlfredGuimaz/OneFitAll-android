@@ -12,6 +12,7 @@ import android.content.SharedPreferences;
 import com.android.volley.toolbox.Authenticator;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.spotify.android.appremote.api.ConnectionParams;
 import com.spotify.android.appremote.api.Connector;
 import com.spotify.android.appremote.api.SpotifyAppRemote;
@@ -52,11 +53,14 @@ public class MainActivity extends AppCompatActivity {
     Spinner spotifySpinner;
     List<String> playlists;
 
+    final String[] phrases = {"You looking good!!!", "Keep Pushing!!!", "Nice Smile!!!",
+                                "Your Pussy Poppin'", "Randy was here! :)"};
+    private int nums = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         shp = getSharedPreferences("myPreferences", MODE_PRIVATE);
         checkConfirm();
@@ -143,7 +147,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //End Bottom Navagation
+        //Floating Button
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                stayPositive(nums);
+                nums++;
+                if(nums == 4){
+                    nums = 0;
+                }
+            }
+        });
+    }
 
+    public void stayPositive(int i){
+        Toast.makeText(MainActivity.this, phrases[i],
+                Toast.LENGTH_SHORT).show();
     }
 
     public void checkConfirm() {
@@ -156,7 +176,8 @@ public class MainActivity extends AppCompatActivity {
         if (Name != null && !Name.equals("")) {
             Toast.makeText(MainActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
 
-        } else
+        }
+        else
         {
             Intent i = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(i);

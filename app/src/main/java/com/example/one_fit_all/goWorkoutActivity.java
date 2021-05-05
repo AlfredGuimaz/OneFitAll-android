@@ -4,14 +4,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 public class goWorkoutActivity extends AppCompatActivity {
+
+    final String[] phrases = {"You looking good!!!", "Keep Pushing!!!", "Nice Smile!!!",
+            "Your Pussy Poppin'", "Randy was here! :)"};
+    private int nums = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +50,24 @@ public class goWorkoutActivity extends AppCompatActivity {
             }
         });
         //End Bottom Navagation
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                stayPositive(nums);
+                nums++;
+                if(nums == 4){
+                    nums = 0;
+                }
+            }
+        });
     }
     //End of onCreate()
+
+    public void stayPositive(int i){
+        Toast.makeText(goWorkoutActivity.this, phrases[i],
+                Toast.LENGTH_SHORT).show();
+    }
 
     public void goCaloriesBurned(View view){
         Intent intent = new Intent(this, goCaloriesBurned.class);
