@@ -31,6 +31,10 @@
         <activity android:name=".ModifyCountryActivity" />
         <activity android:name=".AddCountryActivity" />
 
+        //UserInfo page
+        <activity android:name="UserInfo" />
+
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
