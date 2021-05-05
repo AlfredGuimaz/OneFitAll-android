@@ -11,8 +11,7 @@
     <ScrollView
         android:id="@+id/workoutScrollView"
         android:layout_width="match_parent"
-        android:layout_height="675dp"
-        android:layout_marginBottom="25dp">
+        android:layout_height="565dp">
         <!-- Used to stack cards -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,7 +49,7 @@
                             android:layout_marginTop="8dp"
                             android:text="@string/supportCreateWC"
                             android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary" />
+                            android:textColor="?android:attr/textColorSecondary"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -176,10 +175,10 @@
                         <!-- Progress Bar -->
                         <ProgressBar
                             android:id="@+id/counterProgressBar"
+                            style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="350dp"
-                            android:layout_height="15sp"
-                            android:layout_marginTop="10dp"
-                            style="?android:attr/progressBarStyleHorizontal"/>
+                            android:layout_height="26dp"
+                            android:layout_marginTop="10dp" />
 
                     </LinearLayout>
 

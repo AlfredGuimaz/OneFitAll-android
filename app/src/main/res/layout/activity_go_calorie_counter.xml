@@ -15,17 +15,29 @@
             android:layout_height="40dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
-            android:layout_marginBottom="100dp"
             android:gravity="center"
             android:text="Calorie Intake"
             android:textSize="30sp"/>
+
+        <TextView
+            android:id="@+id/textDescriptionTwo"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="18dp"
+            android:layout_below="@+id/welcomeIntake"
+            android:text="@string/intakeParagraph"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="?android:attr/textColorSecondary"/>
 
         <EditText
             android:id="@+id/searchFood"
             android:layout_width="175dp"
             android:layout_height="40dp"
-            android:layout_below="@+id/welcomeIntake"
-            android:layout_marginTop="20dp"
+            android:layout_below="@id/textDescriptionTwo"
+            android:layout_marginTop="75dp"
             android:layout_centerHorizontal="true"
             android:hint="Find food"
             android:textSize="15sp"

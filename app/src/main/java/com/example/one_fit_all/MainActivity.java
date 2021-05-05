@@ -174,7 +174,6 @@ public class MainActivity extends AppCompatActivity {
         String Name = shp.getString("name", "");
 
         if (Name != null && !Name.equals("")) {
-            Toast.makeText(MainActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
 
         }
         else

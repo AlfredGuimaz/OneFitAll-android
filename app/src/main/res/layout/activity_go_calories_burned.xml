@@ -22,6 +22,19 @@
             android:text="Calorie Burner"
             android:textSize="30sp"/>
 
+        <TextView
+            android:id="@+id/textDescription"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="18dp"
+            android:layout_below="@+id/welcomeBurner"
+            android:text="@string/burnerDescription"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="?android:attr/textColorSecondary"/>
+
         <!-- Met Level Input -->
         <!-- <EditText
             android:id="@+id/metLevel"
@@ -46,10 +59,10 @@
             android:layout_height="wrap_content"
             android:max="16"
             android:progress="8"
-            android:layout_below="@+id/welcomeBurner"
+            android:layout_below="@id/textDescription"
             android:layout_toRightOf="@id/metText"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="50dp" />
+            android:layout_marginTop="25dp" />
 
         <!-- Met Level Text -->
         <TextView
@@ -58,8 +71,8 @@
             android:layout_height="wrap_content"
             android:text="Met Level:"
             android:gravity="center"
-            android:layout_below="@+id/welcomeBurner"
-            android:layout_marginTop="50dp"
+            android:layout_below="@id/textDescription"
+            android:layout_marginTop="25dp"
             android:layout_marginLeft="35dp"
             android:textSize="20sp" />
 
