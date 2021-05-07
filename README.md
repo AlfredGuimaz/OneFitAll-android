@@ -88,4 +88,4 @@ SOFTWARE.
 
 
 ---
-![Project Image](images/One-Fit-All-Login.mp4) ![Project Image](images/image1.png) ![Project Image](images/one-fit-all-calorie-intake.png)
+![Project Image](images/One-Fit-All-Login.gif) ![Project Image](images/one-fit-all-workout-page.png) ![Project Image](images/one-fit-all-calorie-intake.png)
