@@ -19,6 +19,8 @@
         By using the View Workouts feature you can save those amazing workouts for future GAINS!!!
         Or try the Quick Workout feature. Add some quick gains to your amazing day with the countdown timer.</string>
     <string name="viewWorkouts"> View Workouts </string>
+    <string name="viewDescription">Found a new workout? Try saving it here at the View Workout page.
+        Record the muscle group, type of exercise, sets, and more! And remember the GRIND DOES NOT STOP!!!</string>
     <string name="quickWorkout"> Quick Workout </string>
     <string name="quickDescription"> Enter the amount of sets you desire to do, the amount of time
     you want to GRIND for, and finally the amount of time you want to rest for. Enjoy your workout!!!</string>

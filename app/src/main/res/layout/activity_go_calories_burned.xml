@@ -90,7 +90,6 @@
             android:textSize="15sp"
             android:gravity="center"
             android:textColorHint="#E6999999"
-            android:textColor="@color/white"
             android:background="#80999999"/>
 
         <!-- Weight Text -->
@@ -119,7 +118,6 @@
             android:textSize="15sp"
             android:gravity="center"
             android:textColorHint="#E6999999"
-            android:textColor="@color/white"
             android:background="#80999999"/>
 
         <!-- Activity Duration Text -->
