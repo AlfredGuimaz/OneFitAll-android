@@ -79,7 +79,7 @@ SOFTWARE.
 
 ## Author Info
 
-- Linkedin - [@Alfred Guimaztdinov](https://www.linkedin.com/in/alfred-guimaztdinov-856a29167/)
+- Linkedin - [@Alfred Guimaztdinov](https://www.linkedin.com/in/alfred-guimaztdinov-856a29167/)    [@Emil Shigin](https://www.linkedin.com/in/emil-shigin-536a8b1b2/)  
 - Website - [One Fit All](https://www.sandbox.csun.edu/~spm84381/OneFitAll/index.html)
 
     Group comprised of Emil Shigin, Steven Marquez, Alfred Guimaztdinov, Randy Flores Mateo, Ian Moskowitz, Charles Balcom, and Aaron Park
