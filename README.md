@@ -1,6 +1,6 @@
 # One Fit All Fitness Application
 
-![Project Image](https://imgur.com/a/CojxwK4)
+![Project Image](images/LOGO.png)
 
 
 
