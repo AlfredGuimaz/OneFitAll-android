@@ -18,9 +18,9 @@
 ---
 
 ## Description
-Android application with the goal of making its user healthier
+Android application to make its user healthier
 and incorporate fitness into their daily routine. One-Fit-All 
-aims to make peoples fitness and health experience greater by being the swiss army knife of fitness and health applications. This is accomplished by including features to track caloric intake, monitor fitness activity, supply custom workout routines, journaling, and music control. One-Fit-All will allow users to utilize all these features from just the palm of their hand.
+aims to make people's fitness and health experience greater by being the swiss army knife of fitness and health applications. This is accomplished by including features to track caloric intake, monitor fitness activity, supply custom workout routines, journaling, and music control. One-Fit-All will allow users to utilize all these features from just the palm of their hand.
 
 
 #### Technologies
@@ -36,7 +36,7 @@ aims to make peoples fitness and health experience greater by being the swiss ar
 
 ## How To Use
 
-Very simple to use download onto Android device and follow instructions onscreen in order to use the application. On an android device, located our website OneFitAll.com and download the Android APK provided. You must have sufficient storage in order to download the application and an Android device with Android 11 or higher.
+Very simple to use download onto an Android device and follow instructions onscreen to use the application. On an android device, located our website OneFitAll.com and download the Android APK provided. You must have sufficient storage to download the application and an Android device with Android 11 or higher.
 
 
 
@@ -56,7 +56,7 @@ MIT License
 Copyright (c) [2017] [Alfred Guimaztdinov]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
+of this software and associated documentation files (the "Software") to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
@@ -83,7 +83,7 @@ SOFTWARE.
 - Portfolium - [@Randy Flores Mateo](https://www.portfolium.com/randyflores22)
 - Website - [One Fit All](https://www.sandbox.csun.edu/~spm84381/OneFitAll/index.html)
 
-    Group comprised of Emil Shigin, Steven Marquez, Alfred Guimaztdinov, Randy Flores Mateo, Ian Moskowitz, Charles Balcom, and Aaron Park
+    A group comprised of Emil Shigin, Steven Marquez, Alfred Guimaztdinov, Randy Flores Mateo, Ian Moskowitz, Charles Balcom, and Aaron Park
 [Back To The Top](#read-me-template)
 
 
