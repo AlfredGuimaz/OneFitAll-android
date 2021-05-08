@@ -30,7 +30,7 @@ aims to make people's fitness and health experience greater by being the swiss a
 - SQLite
 - MVVM with architecture components
 
-[Back To The Top](# One Fit All Fitness Application)
+[Back To The Top](#one-fit-all-fitness-application)
 
 ---
 
@@ -40,12 +40,12 @@ Very simple to use download onto an Android device and follow instructions onscr
 
 
 
-[Back To The Top](# One Fit All Fitness Application)
+[Back To The Top](#one-fit-all-fitness-application)
 
 ---
 
 ## References
-[Back To The Top](# One Fit All Fitness Application)
+[Back To The Top](#one-fit-all-fitness-application)
 
 ---
 
@@ -73,7 +73,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[Back To The Top](# One Fit All Fitness Application)
+[Back To The Top](#one-fit-all-fitness-application)
 
 ---
 
@@ -84,12 +84,11 @@ SOFTWARE.
 - Website - [One Fit All](https://www.sandbox.csun.edu/~spm84381/OneFitAll/index.html)
 
     A group comprised of Emil Shigin, Steven Marquez, Alfred Guimaztdinov, Randy Flores Mateo, Ian Moskowitz, Charles Balcom, and Aaron Park
-[Back To The Top](# One Fit All Fitness Application)
+[Back To The Top](#one-fit-all-fitness-application)
 
 
 
 ---
 ![Project Image](images/One-Fit-All-Login.gif) ![Project Image](images/one-fit-all-workout-page.png) ![Project Image](images/one-fit-all-calorie-intake.png)
 
-
-[Back To The Top](# One Fit All Fitness Application)
+[Back To The Top](#one-fit-all-fitness-application)
