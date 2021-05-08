@@ -93,12 +93,12 @@ public class Database extends SQLiteOpenHelper {
 
 
 
-    public Cursor getData() {
-        SQLiteDatabase db = this.getWritableDatabase();
+   /* public Cursor getData() {
+        SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("Select * From USER_TABLE where COLUMN_USER_NAME = ?", null);
         return cursor;
-    }
-   /* public List<CustomerClass> getEveryone() {
+    } */
+    public List<CustomerClass> getEveryone() {
         List<CustomerClass> returnList = new ArrayList<>();
         String queryString = "Select * From " + USER_TABLE;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -128,6 +128,6 @@ public class Database extends SQLiteOpenHelper {
         return returnList;
 
     }
-*/
+
 
 }
