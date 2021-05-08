@@ -76,16 +76,26 @@ public class Database extends SQLiteOpenHelper {
         contentValues.put(COLUMN_USER_FEET, feet);
         contentValues.put(COLUMN_USER_INCH, inch);
         // contentValues.put(COLUMN_USER_GENDER, customerClass.getGender())
-        db.update(USER_TABLE, contentValues, "name=?", new String[] {name});
+       Cursor cursor = db.rawQuery("Select * From USER_TABLE where name = ?", new String[] {name});
+       if(cursor.getCount() > 0) {
+           long update = db.update(USER_TABLE, contentValues, "name=?", new String[]{name});
+           if (update == -1) {
+               return false;
+           } else {
+               return true;
+           }
+       } else{
+               return false;
+           }
+       }
 
-        return true;
-    }
+
 
 
 
     public Cursor getData() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(USER_TABLE, null);
+        Cursor cursor = db.rawQuery("Select * From USER_TABLE where name = ?", null);
         return cursor;
     }
    /* public List<CustomerClass> getEveryone() {
