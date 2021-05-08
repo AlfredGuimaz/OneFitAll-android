@@ -178,7 +178,6 @@ public class countdownTimer extends AppCompatActivity implements View.OnClickLis
                 if(sets > 1) { //Try making this into a boolean.
                     restTimerStatus = TimerStatus.STARTED;
                     sets--;
-                    setText.append(" " + sets);
                     startRestTimer();
                 }
             }
@@ -188,10 +187,7 @@ public class countdownTimer extends AppCompatActivity implements View.OnClickLis
 
     //
     private void startRestTimer(){
-        /*sets--;
 
-                workTimerStatus = TimerStatus.STARTED;
-                startWorkTimer();*/
         // changing stop icon to start icon
         // changing the timer status to stopped
         CountDownTimer restTimer = new CountDownTimer(restCountInMilliSeconds, 1000) {
@@ -205,10 +201,6 @@ public class countdownTimer extends AppCompatActivity implements View.OnClickLis
             public void onFinish() {
                 viewRestTime.setText(timeFormatter(restCountInMilliSeconds));
                 setProgressBarValues();
-                /*sets--;
-
-                workTimerStatus = TimerStatus.STARTED;
-                startWorkTimer();*/
 
                 imageViewReset.setVisibility(View.GONE);
                 // changing stop icon to start icon

@@ -15,16 +15,31 @@
 
     //workout card titles
     <string name="createWorkoutCard"> Create Workout </string>
-    <string name="supportCreateWC"> Have a recurring workout? Add it here! Or maybe trying to fit in a workout in you day? Get some quick GAINS! </string>
+    <string name="supportCreateWC"> Have a recurring workout? Add it here!
+        By using the View Workouts feature you can save those amazing workouts for future GAINS!!!
+        Or try the Quick Workout feature. Add some quick gains to your amazing day with the countdown timer.</string>
     <string name="viewWorkouts"> View Workouts </string>
+    <string name="viewDescription">Found a new workout? Try saving it here at the View Workout page.
+        Record the muscle group, type of exercise, sets, and more! And remember the GRIND DOES NOT STOP!!!</string>
     <string name="quickWorkout"> Quick Workout </string>
+    <string name="quickDescription"> Enter the amount of sets you desire to do, the amount of time
+    you want to GRIND for, and finally the amount of time you want to rest for. Enjoy your workout!!!</string>
     //calorie burner titles
     <string name="calorieBurnerCard"> Calorie Burner </string>
-    <string name="supportCalorieBC"> Record how many calories you have burned here! Make sure to update to keep track of your progress. </string>
+    <string name="supportCalorieBC"> Want to know how many Calories you burned? Use the Calorie Burner!
+        Record how many calories you have burned during your workout and make sure to update the amount
+        after each workout to track of your progress. #Gains</string>
     <string name="calorieBurner"> Update Calories </string>
+    <string name="burnerDescription"> Met Level is the intensity of a workout. The harder you work the
+        higher the level (scale 1-16). Make sure to enter the Duration in minutes and your weight in kilograms.</string>
+    <string name="intakeParagraph"> Wondering how many calories that yummy snack has? Try looking it up
+        either using the search bar or scanning the barcode. Do not be shy, look it up.</string>
     //calorie counter titles
     <string name="calorieCounterCard"> Calorie Counter </string>
-    <string name="supportCalorieCC"> Record the intake of calories here! Make sure to keep track of your progress. </string>
+    <string name="supportCalorieCC"> Try the Calorie Counter to look up different food items for
+        their caloric information. And while you are at it record how many calories you
+        consumed so far! Finally make sure to keep track of your progress. #FoodisYummy</string>
+
 
     //bottom menu nav
     <string name="bm_home">Home</string>

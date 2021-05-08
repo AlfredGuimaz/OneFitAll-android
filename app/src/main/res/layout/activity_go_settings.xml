@@ -13,33 +13,43 @@
         android:layout_height="675dp"
         android:layout_marginBottom="25dp">
 
-
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-      <TextView
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:text="Settings"
-          android:textSize="65dp"
-          android:textAlignment="center"
-          android:textStyle="bold"/>
-
-        <Button
-            android:id="@+id/userinfo"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_centerHorizontal="true"
-            android:text="User Info"
-            android:textSize="20dp"
-            android:onClick="UserInfo"/>
-
-
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Settings"
+                android:textSize="65dp"
+                android:textAlignment="center"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Version"
+                android:textSize="25sp"
+                android:background="@color/teal_200"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="2.0.1"
+                android:textSize="20sp"
+                android:background="@color/teal_200"
+                />
+            <Button
+                android:id="@+id/userinfo"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:text="User Info"
+                android:textSize="20dp"
+                android:onClick="UserInfo"/>
+        </LinearLayout>
     </ScrollView>
 
 
@@ -70,9 +80,11 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_add"
-        app:layout_anchor="@id/bottomAppBar"
-        android:contentDescription="TODO"/>
+        android:src="@drawable/ic_smiley"
+        android:scaleType="center"
+        app:fabSize="normal"
+        app:maxImageSize="40dp"
+        app:layout_anchor="@id/bottomAppBar" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

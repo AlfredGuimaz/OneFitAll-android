@@ -16,9 +16,16 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class goJournalActivity extends AppCompatActivity {
+
+    final String[] phrases = {"You looking good!!!", "Keep Pushing!!!", "Nice Smile!!!",
+            "Your Pussy Poppin'", "Randy was here! :)"};
+    private int nums = 0;
 
 
     private DBManager dbManager;
@@ -51,6 +58,8 @@ public class goJournalActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
 
+
+
         //Bottom Navagation
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.miJournal);
@@ -78,10 +87,6 @@ public class goJournalActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long viewid) {
@@ -107,8 +112,22 @@ public class goJournalActivity extends AppCompatActivity {
             }
         });
 
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                stayPositive(nums);
+                nums++;
+                if(nums == 4){
+                    nums = 0;
+                }
+            }
+        });
+    }
 
-
+    public void stayPositive(int i){
+        Toast.makeText(goJournalActivity.this, phrases[i],
+                Toast.LENGTH_SHORT).show();
     }
 
 
