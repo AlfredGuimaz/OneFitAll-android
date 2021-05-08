@@ -40,10 +40,10 @@ public class UserInfo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Cursor res = db.getData();
-                if(res.getCount() == 0) {
-                    Toast.makeText(UserInfo.this, "No Entry Exists", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+//                if(res.getCount() == 0) {
+//                    Toast.makeText(UserInfo.this, "No Entry Exists", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
                 StringBuffer buffer = new StringBuffer();
                 while(res.moveToNext()) {
                     buffer.append("Name :" +res.getString(0) +"\n");

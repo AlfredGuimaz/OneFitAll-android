@@ -72,11 +72,11 @@
                             android:id="@+id/quickWorkout"
                             style="?attr/borderlessButtonStyle"
                             android:layout_width="105dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_marginStart="50dp"
                             android:layout_marginEnd="8dp"
-                            android:text="@string/quickWorkout"
-                            android:onClick="goQuickWorkout"/>
+                            android:onClick="goQuickWorkout"
+                            android:text="@string/quickWorkout" />
 
                     </LinearLayout>
                 </LinearLayout>
