@@ -13,7 +13,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TextView
@@ -34,25 +34,63 @@
                 android:text="@string/viewDescription"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorSecondary"/>
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Muscle Group"
-                android:textSize="20sp"
-                android:layout_marginTop="15dp"
-                android:layout_gravity="center"/>
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Muscle Group: "
+                    android:textSize="20sp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_gravity="center"/>
 
-            <EditText
-                android:id="@+id/muscleGroup"
-                android:layout_width="225dp"
-                android:layout_height="30dp"
-                android:hint="Chest"
-                android:layout_marginTop="8dp"
-                android:layout_gravity="center"
-                android:background="#80999999"
-                android:gravity="center"/>
+                <EditText
+                    android:id="@+id/muscleGroup"
+                    android:layout_width="125dp"
+                    android:layout_height="30dp"
+                    android:hint="Chest"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_gravity="center"
+                    android:background="#80999999"
+                    android:gravity="center"/>
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Exercise Type: "
+                    android:textSize="20sp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_gravity="center"/>
+
+                <EditText
+                    android:id="@+id/exerciseType"
+                    android:layout_width="125dp"
+                    android:layout_height="30dp"
+                    android:hint="Bench Press"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_gravity="center"
+                    android:background="#80999999"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <!--
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -71,6 +109,8 @@
                 android:background="#80999999"
                 android:gravity="center"/>
 
+                -->
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -81,8 +121,8 @@
                     android:layout_height="wrap_content"
                     android:text="Sets"
                     android:textSize="20sp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="40dp"
                     android:layout_gravity="center"/>
 
                 <EditText
@@ -91,13 +131,11 @@
                     android:layout_height="30dp"
                     android:layout_below="@+id/sets"
                     android:layout_marginTop="8dp"
-                    android:layout_marginLeft="50dp"
+                    android:layout_marginLeft="20dp"
                     android:hint="sets"
                     android:inputType="number"
                     android:background="#80999999"
                     android:gravity="center"/>
-
-
 
                 <TextView
                     android:id="@+id/reps"
@@ -105,8 +143,8 @@
                     android:layout_height="wrap_content"
                     android:text="Reps"
                     android:textSize="20sp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="75dp"
                     android:layout_toRightOf="@+id/sets"
                     android:layout_gravity="center"/>
 
@@ -117,14 +155,40 @@
                     android:layout_below="@+id/reps"
                     android:layout_marginTop="8dp"
                     android:layout_toRightOf="@+id/sets"
-                    android:layout_marginLeft="80dp"
+                    android:layout_marginLeft="50dp"
                     android:hint="reps"
                     android:inputType="number"
                     android:background="#80999999"
                     android:gravity="center"/>
 
+                <TextView
+                    android:id="@+id/weights"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Weight"
+                    android:textSize="20sp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_toRightOf="@+id/reps"
+                    android:layout_gravity="center"/>
+
+                <EditText
+                    android:id="@+id/viewWeights"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_below="@+id/weights"
+                    android:hint="kg or lbs."
+                    android:inputType="number"
+                    android:layout_marginTop="8dp"
+                    android:layout_toRightOf="@id/viewReps"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center"
+                    android:background="#80999999"
+                    android:gravity="center"/>
+
             </RelativeLayout>
 
+            <!--
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -144,6 +208,8 @@
                 android:background="#80999999"
                 android:gravity="center"/>
 
+                -->
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -154,7 +220,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:text="Save"
-                    android:layout_marginLeft="70dp"
+                    android:layout_marginLeft="75dp"
                     android:layout_gravity="center"/>
 
                 <Button
