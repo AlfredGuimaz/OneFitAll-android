@@ -40,10 +40,10 @@ public class UserInfo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Cursor res = db.getData();
-                if(res.getCount() == 0) {
-                    Toast.makeText(UserInfo.this, "No Entry Exists", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+//                if(res.getCount() == 0) {
+//                    Toast.makeText(UserInfo.this, "No Entry Exists", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
                 StringBuffer buffer = new StringBuffer();
                 while(res.moveToNext()) {
                     buffer.append("Name :" +res.getString(0) +"\n");
@@ -65,6 +65,7 @@ public class UserInfo extends AppCompatActivity {
         Update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 boolean isUpdate = db.updateDB(Name.getText().toString(), Integer.parseInt(Weight.getText().toString()), Integer.parseInt(Age.getText().toString()), Integer.parseInt(Feet.getText().toString()), Integer.parseInt(Inch.getText().toString()));
                 if (isUpdate == true) {
                     Toast.makeText(UserInfo.this, "User Updated", Toast.LENGTH_SHORT).show();

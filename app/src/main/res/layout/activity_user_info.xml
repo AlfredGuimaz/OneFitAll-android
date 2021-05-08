@@ -1,6 +1,5 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/Layout"
     android:layout_width="match_parent"
@@ -17,7 +16,7 @@
             android:id="@+id/Update"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_below="@+id/Age"
+            android:layout_below="@+id/Age2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="130dp"
             android:hint="@string/Update"
@@ -43,10 +42,10 @@
 
 
         <EditText
-            android:id="@+id/Weight"
+            android:id="@+id/Weight2"
             android:layout_width="300dp"
             android:layout_height="73dp"
-            android:layout_below="@+id/Name"
+            android:layout_below="@+id/Name2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
             android:ems="10"
@@ -55,10 +54,10 @@
 
 
         <EditText
-            android:id="@+id/Age"
+            android:id="@+id/Age2"
             android:layout_width="300dp"
             android:layout_height="73dp"
-            android:layout_below="@+id/Weight"
+            android:layout_below="@+id/Weight2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
             android:ems="10"
@@ -66,10 +65,10 @@
             android:inputType="number" />
 
         <EditText
-            android:id="@+id/Feet"
+            android:id="@+id/Feet2"
             android:layout_width="145dp"
             android:layout_height="73dp"
-            android:layout_below="@id/Age"
+            android:layout_below="@id/Age2"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="16dp"
             android:ems="10"
@@ -77,10 +76,10 @@
             android:inputType="number" />
 
         <EditText
-            android:id="@+id/Inch"
+            android:id="@+id/Inch2"
             android:layout_width="145dp"
             android:layout_height="73dp"
-            android:layout_below="@id/Age"
+            android:layout_below="@id/Age2"
             android:layout_marginLeft="235dp"
             android:layout_marginTop="16dp"
             android:ems="10"
@@ -89,7 +88,7 @@
 
 
         <EditText
-            android:id="@+id/Name"
+            android:id="@+id/Name2"
             android:layout_width="300dp"
             android:layout_height="73dp"
             android:layout_below="@+id/Logo"

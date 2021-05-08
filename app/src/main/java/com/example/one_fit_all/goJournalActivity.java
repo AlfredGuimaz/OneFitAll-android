@@ -58,6 +58,8 @@ public class goJournalActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
 
+
+
         //Bottom Navagation
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.miJournal);
