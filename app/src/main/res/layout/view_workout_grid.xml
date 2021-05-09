@@ -56,6 +56,15 @@
                 android:text="Textview" />
 
             <TextView
+                android:id="@+id/stringSets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/tv_Sets"
+                android:layout_below="@+id/tv_ExerciseType"
+                android:layout_centerHorizontal="true"
+                android:text="S: " />
+
+            <TextView
                 android:id="@+id/tv_Reps"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -64,12 +73,30 @@
                 android:text="Textview" />
 
             <TextView
+                android:id="@+id/stringReps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/tv_Sets"
+                android:layout_below="@+id/stringSets"
+                android:layout_centerHorizontal="true"
+                android:text="R: " />
+
+            <TextView
                 android:id="@+id/tv_Weight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_Reps"
                 android:layout_centerHorizontal="true"
                 android:text="Textview" />
+
+            <TextView
+                android:id="@+id/stringWeights"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/tv_Sets"
+                android:layout_below="@+id/stringReps"
+                android:layout_centerHorizontal="true"
+                android:text="W: " />
 
         </RelativeLayout>
 

@@ -87,12 +87,8 @@ public class goViewWorkout extends AppCompatActivity {
                 mAdapter = new RecycleViewAdapter(dataBaseWorkoutHelper.getEverything(), goViewWorkout.this);
                 workoutGrid.setAdapter(mAdapter);
 
-                //ArrayAdapter workoutArrayAdapter = new ArrayAdapter<WorkoutModel>(goViewWorkout.this, android.R.layout.simple_list_item_1, everything);
-                //workoutGrid.setAdapter(workoutArrayAdapter);
             }
         });
-
-
 
         restWorkoutBtn = findViewById(R.id.restWorkoutBtn);
         restWorkoutBtn.setOnClickListener(new View.OnClickListener() {

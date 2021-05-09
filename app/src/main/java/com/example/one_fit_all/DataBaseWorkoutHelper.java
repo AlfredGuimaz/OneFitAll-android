@@ -57,6 +57,22 @@ public class DataBaseWorkoutHelper extends SQLiteOpenHelper {
         }
     }
 
+    public boolean deleteOne(WorkoutModel workoutModel){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        String queryString = "DELETE FROM " + WORKOUT_TABLE + " WHERE " + COLUMN_ID + " = " + workoutModel.getId();
+
+        Cursor cursor = sqLiteDatabase.rawQuery(queryString, null);
+
+        if(cursor.moveToFirst()){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+
+    }
+
     public List<WorkoutModel> getEverything(){
         List<WorkoutModel> returnList = new ArrayList<>();
 
