@@ -4,6 +4,11 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
+    <uses-feature android:name="android.hardware.SensorManager"/>
+    <uses-feature android:name="android.hardware.Sensor"/>
+    <uses-feature android:name="android.hardware.SensorEvent"/>
+    <uses-feature android:name="android.hardware.SensorEventListener"/>
 
     <queries>
         <package android:name="com.spotify.music" />

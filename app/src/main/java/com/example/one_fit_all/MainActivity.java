@@ -3,7 +3,13 @@ package com.example.one_fit_all;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -22,8 +28,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-//import android.widget.TextView;
+import android.widget.TextView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -37,7 +44,17 @@ import com.spotify.sdk.android.auth.AuthorizationResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SensorEventListener {
+
+    //Step counting
+    private SensorManager sensorManager = null;
+    Sensor stepSensor;
+    private boolean running =false;
+    private float totalSteps = 0;
+    private float previousTotalSteps = 0;
+    private TextView tv_stepHeader;
+    private TextView tv_stepHeaderTemp;
+
 
     //Button and Variables for DB
     private Button Confirm;
@@ -54,14 +71,25 @@ public class MainActivity extends AppCompatActivity {
     List<String> playlists;
 
     final String[] phrases = {"You looking good!!!", "Keep Pushing!!!", "Nice Smile!!!",
-                                "Your Pussy Poppin'", "Randy was here! :)"};
+                                "Look at you being healthy", "Randy was here! :)"};
     private int nums = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //step counter
+        tv_stepHeader = (TextView) findViewById(R.id.tv_stepHeader);
+        tv_stepHeaderTemp =findViewById(R.id.tv_stepHeaderTemp);
+        loadData();
+        pressStepCounter();
+        sensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
+        stepSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+
+
+        //fitBeats
         shp = getSharedPreferences("myPreferences", MODE_PRIVATE);
         checkConfirm();
        /* Confirm = findViewById(R.id.Confirm);
@@ -119,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
         spotifySpinner.setEnabled(true);
         spotifySpinner.setClickable(true);
         spotifySpinner.setAdapter(myAdapter);
+        //end fitBeats
 
         //Bottom Navagation
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
@@ -161,9 +190,76 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void stayPositive(int i){
-        Toast.makeText(MainActivity.this, phrases[i],
-                Toast.LENGTH_SHORT).show();
+    //step counting functions
+    @Override
+    protected void onResume() {
+        super.onResume();
+        running =true;
+        Sensor stepSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+        if(stepSensor == null){
+            Toast.makeText(this,"Phone not compatable with step counting",Toast.LENGTH_SHORT).show();
+        }else{
+            Log.d("onResume","-------------------Step Sensor working-----------------");
+            sensorManager.registerListener((SensorEventListener) this,stepSensor,SensorManager.SENSOR_DELAY_UI);
+        }
+    }
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+       Log.d("sensor","-------------sensor activated------------");
+       tv_stepHeader = findViewById(R.id.tv_stepHeader);
+        if(running){
+            totalSteps = event.values[0];
+            int currentStep = (int)totalSteps - (int)previousTotalSteps;
+            Log.d("sensor","-----------------------"+currentStep);
+            tv_stepHeader.setText(String.valueOf(currentStep));
+            //update progress bar in the future
+        }
+    }
+
+    private void pressStepCounter(){
+        //TODO change to card instead of thenumber
+        tv_stepHeader = findViewById(R.id.tv_stepHeader);
+        tv_stepHeader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("press","-------------Single Press------------");
+            }
+        });
+
+        tv_stepHeader.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Log.d("press","-------------long Press------------");
+                previousTotalSteps = totalSteps;
+                tv_stepHeader.setText(0+" steps taken");
+                saveData();
+                return true;
+            }
+
+        });
+    }
+
+    private void saveData(){
+        Log.d("press","-------------Save Data------------");
+        SharedPreferences sharedPreferences = getSharedPreferences("stepSave", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putFloat("Key1",previousTotalSteps);
+        editor.apply();
+    }
+    private void loadData(){
+        Log.d("press","-------------Loading Data------------");
+        SharedPreferences sharedPreferences = getSharedPreferences("stepSave", Context.MODE_PRIVATE);
+        Float savedNumber = sharedPreferences.getFloat("Key1",0);
+        Log.d("MainActivity","Loading Data saved number: "+savedNumber);
+        previousTotalSteps = savedNumber;
+        Log.d("press","-------------totalSteps "+totalSteps+"");
+
+    }
+
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        //do not touch defualt accuracy is good
     }
 
     public void checkConfirm() {
@@ -183,6 +279,14 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
     }
+
+    //Smile face button
+    public void stayPositive(int i){
+        Toast.makeText(MainActivity.this, phrases[i],
+                Toast.LENGTH_SHORT).show();
+    }
+
+
 
 //    @Override
 //    protected void onStart() {

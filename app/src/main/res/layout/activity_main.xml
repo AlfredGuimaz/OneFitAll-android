@@ -21,6 +21,15 @@
             android:orientation="vertical">
             <!-- Start of Cards -->
 
+            <TextView
+                android:id="@+id/tv_stepHeaderTemp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hello"
+                android:textAlignment="center"
+                android:textSize="30dp"
+                />
+
             <!-- Card for Step Counting-->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
@@ -37,12 +46,13 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/StepHeader"
+                        android:id="@+id/tv_stepHeader"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="500 Step "
+                        android:text="1"
                         android:textAlignment="center"
-                        android:textSize="30dp" />
+                        android:textSize="30dp"
+                        />
 
                     <ProgressBar
                         android:id="@+id/progressBar"
