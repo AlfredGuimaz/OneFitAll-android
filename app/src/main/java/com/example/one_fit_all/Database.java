@@ -25,7 +25,7 @@ public class Database extends SQLiteOpenHelper {
     //public static final String COLUMN_USER_GENDER = "USER_GENDER";
 
 
-    public Database(@Nullable Context context) {
+    public Database(Context context) {
 
         super(context, "database.db", null, 1);
     }
@@ -76,7 +76,7 @@ public class Database extends SQLiteOpenHelper {
         contentValues.put(COLUMN_USER_FEET, feet);
         contentValues.put(COLUMN_USER_INCH, inch);
         // contentValues.put(COLUMN_USER_GENDER, customerClass.getGender())
-        Cursor cursor = db.rawQuery("Select * From USER_TABLE where COLUMN_USER_NAME = ?", new String[] {String.valueOf(name)});
+        Cursor cursor = db.rawQuery("Select * From USER_TABLE where USER_NAME = ?", new String[] {String.valueOf(name)});
        if(cursor.getCount() > 0) {
            long update = db.update(USER_TABLE, contentValues, "name=?", new String[]{name});
            if (update == -1) {
@@ -90,14 +90,6 @@ public class Database extends SQLiteOpenHelper {
        }
 
 
-
-
-
-   /* public Cursor getData() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("Select * From USER_TABLE where COLUMN_USER_NAME = ?", null);
-        return cursor;
-    } */
     public List<CustomerClass> getEveryone() {
         List<CustomerClass> returnList = new ArrayList<>();
         String queryString = "Select * From " + USER_TABLE;

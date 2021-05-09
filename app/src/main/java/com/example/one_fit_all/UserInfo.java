@@ -1,12 +1,11 @@
 package com.example.one_fit_all;
 
-import androidx.appcompat.app.AlertDialog;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+
 import android.os.Bundle;
 
-import android.database.Cursor;
 
 
 import android.view.View;
@@ -26,6 +25,7 @@ public class UserInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //Create New XML file for login page
         setContentView(R.layout.activity_user_info);
+
         db = new Database(this);
         Update = findViewById(R.id.Update);
         //ViewAll = findViewById(R.id.ViewAll);
@@ -76,7 +76,7 @@ public class UserInfo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                boolean isUpdate = db.updateDB(Name.getText().toString(), Integer.parseInt(Weight.getText().toString()), Integer.parseInt(Age.getText().toString()), Integer.parseInt(Feet.getText().toString()), Integer.parseInt(Inch.getText().toString()));
+                boolean isUpdate = db.updateDB(Name.getText().toString(), Integer.parseInt(Weight.getText().toString()), Integer.parseInt(Age.getText().toString()),Integer.parseInt(Feet.getText().toString()), Integer.parseInt(Inch.getText().toString()));
                 if (isUpdate == true) {
                     Toast.makeText(UserInfo.this, "User Updated", Toast.LENGTH_SHORT).show();
                 } else {
