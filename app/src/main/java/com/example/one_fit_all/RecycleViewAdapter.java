@@ -1,12 +1,16 @@
 package com.example.one_fit_all;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -38,6 +42,16 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         holder.tv_Reps.setText(String.valueOf(everything.get(position).getRepAmount()));
         holder.tv_Weight.setText(String.valueOf(everything.get(position).getwAmount()));
 
+        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                WorkoutModel workoutModel = (WorkoutModel) everything. get(position);
+                DataBaseWorkoutHelper dataBaseWorkoutHelper = new DataBaseWorkoutHelper(context);
+                dataBaseWorkoutHelper.deleteOne(workoutModel);
+
+                Toast.makeText(context, "refresh page", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
@@ -54,6 +68,8 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         TextView tv_Reps;
         TextView tv_Weight;
 
+        ConstraintLayout parentLayout;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_ID = itemView.findViewById(R.id.tv_ID);
@@ -62,6 +78,8 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             tv_Sets = itemView.findViewById(R.id.tv_Sets);
             tv_Reps = itemView.findViewById(R.id.tv_Reps);
             tv_Weight = itemView.findViewById(R.id.tv_Weight);
+
+            parentLayout = itemView.findViewById(R.id.viewWorkoutGrid);
         }
     }
 }

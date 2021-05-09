@@ -158,8 +158,6 @@
             </com.google.android.material.card.MaterialCardView>
 
 
-
-
         <!--End of the cards        -->
         </LinearLayout>
     </ScrollView>
