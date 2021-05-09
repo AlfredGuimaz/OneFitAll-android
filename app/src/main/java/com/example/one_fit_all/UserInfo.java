@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
 
 
 public class UserInfo extends AppCompatActivity {
@@ -37,8 +38,17 @@ public class UserInfo extends AppCompatActivity {
         ViewData = findViewById(R.id.ViewData);
 
         ViewData.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+                Database database = new Database(UserInfo.this);
+                List<CustomerClass> everyone = database.getEveryone();
+                Toast.makeText(UserInfo.this, everyone.toString(), Toast.LENGTH_SHORT).show();
+
+            }
+});
+
+          /*  public void onClick(View view) {
                 Cursor res = db.getData();
 //                if(res.getCount() == 0) {
 //                    Toast.makeText(UserInfo.this, "No Entry Exists", Toast.LENGTH_SHORT).show();
@@ -59,7 +69,7 @@ public class UserInfo extends AppCompatActivity {
                 builder.show();
 
             }
-        });
+        }); */
 
 
         Update.setOnClickListener(new View.OnClickListener() {
