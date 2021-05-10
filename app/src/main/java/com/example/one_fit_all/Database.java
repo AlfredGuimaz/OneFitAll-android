@@ -68,27 +68,28 @@ public class Database extends SQLiteOpenHelper {
         }
     }
 
-    public boolean updateDB(String id, String name, int weight, int age, int feet, int inch) {
+    public boolean updateDB( String name, int weight, int age, int feet, int inch) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("USER_NAME", name);
+        //contentValues.put("USER_NAME", name);
         contentValues.put("USER_WEIGHT", weight);
         contentValues.put("USER_AGE", age);
         contentValues.put("USER_FEET", feet);
         contentValues.put("USER_INCH", inch);
         // contentValues.put(COLUMN_USER_GENDER, customerClass.getGender())
-        Cursor cursor = db.rawQuery("Select * From USER_TABLE where ID = ?", new String[] {id});
-       if(cursor.getCount() > 0) {
-           long update = db.update(USER_TABLE, contentValues, "ID=?", new String[]{id});
-           if (update == -1) {
-               return false;
-           } else {
+        db.rawQuery("Select * From USER_TABLE where name = ?", new String[]{name});
+        //if(cursor.getCount() > 0) {
+        // long update = db.update(USER_TABLE, contentValues, "name=?", new String[]{name});
+        //   if (update == -1) {
+        return true;
+    }
+         /*  } else {
                return true;
            }
        } else{
                return false;
            }
-       }
+       }*/
 
 
     public List<CustomerClass> getEveryone() {

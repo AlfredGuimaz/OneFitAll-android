@@ -75,8 +75,9 @@ public class UserInfo extends AppCompatActivity {
         Update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String newID = Id.getText().toString();
-                boolean isUpdate = db.updateDB(newID, Name2.getText().toString(), Integer.parseInt(Weight2.getText().toString()), Integer.parseInt(Age2.getText().toString()),Integer.parseInt(Feet2.getText().toString()), Integer.parseInt(Inch2.getText().toString()));
+                //String newID = Id.getText().toString();
+
+                boolean isUpdate = db.updateDB(Name2.getText().toString(), Integer.parseInt(Weight2.getText().toString()), Integer.parseInt(Age2.getText().toString()),Integer.parseInt(Feet2.getText().toString()), Integer.parseInt(Inch2.getText().toString()));
                 if (isUpdate == true) {
                     Toast.makeText(UserInfo.this, "User Updated", Toast.LENGTH_SHORT).show();
                 } else {
