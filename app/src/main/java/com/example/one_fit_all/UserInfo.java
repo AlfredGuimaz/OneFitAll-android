@@ -9,11 +9,13 @@ import android.os.Bundle;
 import android.database.Cursor;
 
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
 import java.util.List;
 
 
@@ -29,11 +31,11 @@ public class UserInfo extends AppCompatActivity {
         db = new Database(this);
         Update = findViewById(R.id.Update);
         //ViewAll = findViewById(R.id.ViewAll);
-        Name = findViewById(R.id.Name);
-        Weight = findViewById(R.id.Weight);
-        Feet = findViewById(R.id.Feet);
-        Inch = findViewById(R.id.Inch);
-        Age = findViewById(R.id.Age);
+        Name = findViewById(R.id.Name2);
+        Weight = findViewById(R.id.Weight2);
+        Feet = findViewById(R.id.Feet2);
+        Inch = findViewById(R.id.Inch2);
+        Age = findViewById(R.id.Age2);
         //  DB = new Database(this);
         ViewData = findViewById(R.id.ViewData);
 
@@ -43,7 +45,13 @@ public class UserInfo extends AppCompatActivity {
             public void onClick(View view) {
                 Database database = new Database(UserInfo.this);
                 List<CustomerClass> everyone = database.getEveryone();
-                Toast.makeText(UserInfo.this, everyone.toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(UserInfo.this, everyone.toString(), Toast.LENGTH_SHORT).show();
+//                Log.d("show","------------- name:"+everyone.get(0).getName());
+                Name.setText(everyone.get(0).getName());
+                Weight.setText(String.valueOf(everyone.get(0).getWeight()));
+                Feet.setText(String.valueOf(everyone.get(0).getFeet()));
+                Inch.setText(String.valueOf(everyone.get(0).getInch()));
+                Age.setText(String.valueOf(everyone.get(0).getAge()));
 
             }
         });

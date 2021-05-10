@@ -279,6 +279,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         editor.putInt("Key2",goalNew);
         editor.apply();
         goal = goalNew;
+        int currentStep = (int)totalSteps - (int)previousTotalSteps;
+        tv_bottomStepCounter.setText(currentStep+"/"+goal+" steps");
     }
 
     //    Dont Touch Bellow function for Step Counter Functiom
