@@ -84,7 +84,27 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         tv_stepHeader = (TextView) findViewById(R.id.tv_stepHeader);
         tv_stepHeaderTemp =findViewById(R.id.tv_stepHeaderTemp);
         loadData();
-        pressStepCounter();
+            //pressStepCounter();
+        tv_stepHeader = findViewById(R.id.tv_stepHeader);
+        tv_stepHeader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("press","-------------Single Press------------");
+            }
+        });
+
+        tv_stepHeader.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Log.d("press","-------------long Press------------");
+                previousTotalSteps = totalSteps;
+                tv_stepHeader.setText(0+" steps taken");
+                saveData();
+                return true;
+            }
+
+        });
+
         sensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
         stepSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
 
