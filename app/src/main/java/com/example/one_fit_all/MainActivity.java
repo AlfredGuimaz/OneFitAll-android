@@ -18,6 +18,7 @@ import android.content.SharedPreferences;
 import com.android.volley.toolbox.Authenticator;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.spotify.android.appremote.api.ConnectionParams;
 import com.spotify.android.appremote.api.Connector;
@@ -28,6 +29,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -44,7 +46,7 @@ import com.spotify.sdk.android.auth.AuthorizationResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements SensorEventListener {
+public class MainActivity extends AppCompatActivity implements SensorEventListener{
 
     //Step counting
     private SensorManager sensorManager = null;
@@ -53,7 +55,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private float totalSteps = 0;
     private float previousTotalSteps = 0;
     private TextView tv_stepHeader;
-    private TextView tv_stepHeaderTemp;
+    private TextView tv_bottomStepCounter;
+    private EditText et_newGoal;
+    private Button bt_newGaol;
+    private Button bt_dropdownTitel;
+    private LinearLayout ll_dropdownInfo;
+    private MaterialCardView card_stepCounter;
+    private int goal;
+
+
 
 
     //Button and Variables for DB
@@ -82,29 +92,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         //step counter
         tv_stepHeader = (TextView) findViewById(R.id.tv_stepHeader);
-        tv_stepHeaderTemp =findViewById(R.id.tv_stepHeaderTemp);
+        tv_bottomStepCounter = (TextView) findViewById(R.id.tv_bottomStepCounter);
+        bt_dropdownTitel = (Button) findViewById(R.id.bt_dropdownTitel);
+        ll_dropdownInfo = (LinearLayout) findViewById(R.id.ll_dropdownInfo);
+        et_newGoal = (EditText) findViewById(R.id.et_newGoal);
+        bt_newGaol = (Button) findViewById(R.id.bt_newGoal);
         loadData();
-            //pressStepCounter();
-        tv_stepHeader = findViewById(R.id.tv_stepHeader);
-        tv_stepHeader.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("press","-------------Single Press------------");
-            }
-        });
-
-        tv_stepHeader.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                Log.d("press","-------------long Press------------");
-                previousTotalSteps = totalSteps;
-                tv_stepHeader.setText(0+" steps taken");
-                saveData();
-                return true;
-            }
-
-        });
-
+        card_stepCounter = (MaterialCardView) findViewById(R.id.card_stepCounter);
         sensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
         stepSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
 
@@ -227,36 +221,23 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     public void onSensorChanged(SensorEvent event) {
        Log.d("sensor","-------------sensor activated------------");
        tv_stepHeader = findViewById(R.id.tv_stepHeader);
+       tv_bottomStepCounter = findViewById(R.id.tv_bottomStepCounter);
         if(running){
             totalSteps = event.values[0];
             int currentStep = (int)totalSteps - (int)previousTotalSteps;
             Log.d("sensor","-----------------------"+currentStep);
             tv_stepHeader.setText(String.valueOf(currentStep));
+            tv_bottomStepCounter.setText(currentStep+"/"+goal+" steps");
             //update progress bar in the future
         }
     }
 
-    private void pressStepCounter(){
-        //TODO change to card instead of thenumber
-        tv_stepHeader = findViewById(R.id.tv_stepHeader);
-        tv_stepHeader.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("press","-------------Single Press------------");
-            }
-        });
-
-        tv_stepHeader.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                Log.d("press","-------------long Press------------");
-                previousTotalSteps = totalSteps;
-                tv_stepHeader.setText(0+" steps taken");
-                saveData();
-                return true;
-            }
-
-        });
+    public void resetStepCounter(View view){
+        Log.d("resetStepCounter","------butten pressed");
+        previousTotalSteps = totalSteps;
+        tv_stepHeader.setText(String.valueOf(0));
+        tv_bottomStepCounter.setText(0+"/"+goal+" steps");
+        saveData();
     }
 
     private void saveData(){
@@ -267,16 +248,40 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         editor.apply();
     }
     private void loadData(){
-        Log.d("press","-------------Loading Data------------");
         SharedPreferences sharedPreferences = getSharedPreferences("stepSave", Context.MODE_PRIVATE);
         Float savedNumber = sharedPreferences.getFloat("Key1",0);
-        Log.d("MainActivity","Loading Data saved number: "+savedNumber);
+        int saveGoal = sharedPreferences.getInt("Key2",0);
         previousTotalSteps = savedNumber;
-        Log.d("press","-------------totalSteps "+totalSteps+"");
-
+        goal = saveGoal;
     }
 
+    public void stepCounterInfo(View view){
+        bt_dropdownTitel = findViewById(R.id.bt_dropdownTitel);
+        ll_dropdownInfo = findViewById(R.id.ll_dropdownInfo);
+        if(bt_dropdownTitel.getText().toString().equals("SHOW MORE")){
+            bt_dropdownTitel.setText("SHOW LESS");
+            ll_dropdownInfo.setVisibility(View.VISIBLE);
+            return;
+        }
+        if(bt_dropdownTitel.getText().toString().equals("SHOW LESS")){
+            bt_dropdownTitel.setText("SHOW MORE");
+            ll_dropdownInfo.setVisibility(View.GONE);
+            return;
+        }
+    }
 
+    public void setGoal(View view){
+        Log.d("setGoal","----button pressed");
+        et_newGoal = findViewById(R.id.et_newGoal);
+        int goalNew = Integer.parseInt(et_newGoal.getText().toString());
+        SharedPreferences sharedPreferences = getSharedPreferences("stepSave", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("Key2",goalNew);
+        editor.apply();
+        goal = goalNew;
+    }
+
+    //    Dont Touch Bellow function for Step Counter Functiom
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
         //do not touch defualt accuracy is good

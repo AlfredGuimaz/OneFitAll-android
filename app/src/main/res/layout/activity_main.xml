@@ -32,40 +32,114 @@
 
             <!-- Card for Step Counting-->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_stepCounter"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
                 app:cardCornerRadius="5dp"
-                app:contentPadding="20dp">
+                app:contentPadding="20dp"
+                android:clickable="false"
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/tv_stepHeader"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="1"
-                        android:textAlignment="center"
-                        android:textSize="30dp"
-                        />
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/tv_stepHeader"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="1"
+                            android:textAlignment="center"
+                            android:layout_marginLeft="50dp"
+                            android:textSize="30dp"
+                            android:onClick="resetStepCounter"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text=" steps taken"
+                            android:textAlignment="center"
+                            android:layout_marginLeft="5dp"
+                            android:textSize="30dp"
+                            />
+
+                    </LinearLayout>
+
 
                     <ProgressBar
                         android:id="@+id/progressBar"
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="350dp"
-                        android:layout_height="15sp"
-                        />
+                        android:layout_height="15sp" />
+
 
                     <TextView
+                        android:id="@+id/tv_bottomStepCounter"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text=" goal 500/1000 steps"
+                        android:text=" 500/1000 steps"
                         android:textAlignment="textEnd" />
+
+<!--                    more Info drop down-->
+                    <LinearLayout
+                        android:id="@+id/ll_dropdownInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Set New Goal"/>
+
+                            <EditText
+                                android:id="@+id/et_newGoal"
+                                android:layout_width="120dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:layout_marginLeft="10dp"
+                                android:inputType="number" />
+
+                            <Button
+                                android:id="@+id/bt_newGoal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="NEW GOAL"
+                                android:onClick="setGoal"/>
+
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/bt_dropdownTitel"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:paddingTop="5dp"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:text="SHOW MORE"
+                        android:onClick="stepCounterInfo"
+                        />
+
+
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>

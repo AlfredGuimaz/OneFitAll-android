@@ -1,11 +1,12 @@
 package com.example.one_fit_all;
 
-
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-
+import android.content.Intent;
 import android.os.Bundle;
 
+import android.database.Cursor;
 
 
 import android.view.View;
@@ -18,22 +19,21 @@ import java.util.List;
 
 public class UserInfo extends AppCompatActivity {
     Button ViewData, Update;
-    EditText Name2, Weight2, Feet2, Inch2, Age2, Id;
+    EditText Name, Weight, Feet, Inch, Age;
     Database db;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Create New XML file for login page
         setContentView(R.layout.activity_user_info);
-
         db = new Database(this);
         Update = findViewById(R.id.Update);
         //ViewAll = findViewById(R.id.ViewAll);
-        Name2 = findViewById(R.id.Name2);
-        Weight2 = findViewById(R.id.Weight2);
-        Feet2 = findViewById(R.id.Feet2);
-        Inch2 = findViewById(R.id.Inch2);
-        Age2 = findViewById(R.id.Age2);
+        Name = findViewById(R.id.Name);
+        Weight = findViewById(R.id.Weight);
+        Feet = findViewById(R.id.Feet);
+        Inch = findViewById(R.id.Inch);
+        Age = findViewById(R.id.Age);
         //  DB = new Database(this);
         ViewData = findViewById(R.id.ViewData);
 
@@ -46,7 +46,7 @@ public class UserInfo extends AppCompatActivity {
                 Toast.makeText(UserInfo.this, everyone.toString(), Toast.LENGTH_SHORT).show();
 
             }
-});
+        });
 
           /*  public void onClick(View view) {
                 Cursor res = db.getData();
@@ -75,9 +75,8 @@ public class UserInfo extends AppCompatActivity {
         Update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //String newID = Id.getText().toString();
 
-                boolean isUpdate = db.updateDB(Name2.getText().toString(), Integer.parseInt(Weight2.getText().toString()), Integer.parseInt(Age2.getText().toString()),Integer.parseInt(Feet2.getText().toString()), Integer.parseInt(Inch2.getText().toString()));
+                boolean isUpdate = db.updateDB(Name.getText().toString(), Integer.parseInt(Weight.getText().toString()), Integer.parseInt(Age.getText().toString()), Integer.parseInt(Feet.getText().toString()), Integer.parseInt(Inch.getText().toString()));
                 if (isUpdate == true) {
                     Toast.makeText(UserInfo.this, "User Updated", Toast.LENGTH_SHORT).show();
                 } else {

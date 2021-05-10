@@ -22,11 +22,10 @@ public class Database extends SQLiteOpenHelper {
     public static final String COLUMN_USER_AGE = "USER_AGE";
     public static final String COLUMN_USER_FEET = "USER_FEET";
     public static final String COLUMN_USER_INCH = "USER_INCH";
-    public static final String USER_ID = "ID";
     //public static final String COLUMN_USER_GENDER = "USER_GENDER";
 
 
-    public Database(Context context) {
+    public Database(@Nullable Context context) {
 
         super(context, "database.db", null, 1);
     }
@@ -34,7 +33,7 @@ public class Database extends SQLiteOpenHelper {
     //Called when database is first accessed, contains code to create new database/tables
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTableStatement = "CREATE TABLE " + USER_TABLE + " (" + USER_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_USER_NAME + " TEXT, " + COLUMN_USER_WEIGHT + " INT, " + COLUMN_USER_AGE + " INT, " + COLUMN_USER_FEET + " INT, " + COLUMN_USER_INCH + " INT )";// + COLUMN_USER_GENDER + " TEXT )";
+        String createTableStatement = "CREATE TABLE " + USER_TABLE + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_USER_NAME + " TEXT, " + COLUMN_USER_WEIGHT + " INT, " + COLUMN_USER_AGE + " INT, " + COLUMN_USER_FEET + " INT, " + COLUMN_USER_INCH + " INT )";// + COLUMN_USER_GENDER + " TEXT )";
 
         db.execSQL(createTableStatement);
     }
@@ -68,30 +67,37 @@ public class Database extends SQLiteOpenHelper {
         }
     }
 
-    public boolean updateDB( String name, int weight, int age, int feet, int inch) {
+    public boolean updateDB(String name, int weight, int age, int feet, int inch) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        //contentValues.put("USER_NAME", name);
-        contentValues.put("USER_WEIGHT", weight);
-        contentValues.put("USER_AGE", age);
-        contentValues.put("USER_FEET", feet);
-        contentValues.put("USER_INCH", inch);
+        contentValues.put(COLUMN_USER_NAME, name);
+        contentValues.put(COLUMN_USER_WEIGHT, weight);
+        contentValues.put(COLUMN_USER_AGE, age);
+        contentValues.put(COLUMN_USER_FEET, feet);
+        contentValues.put(COLUMN_USER_INCH, inch);
         // contentValues.put(COLUMN_USER_GENDER, customerClass.getGender())
-        db.rawQuery("Select * From USER_TABLE where name = ?", new String[]{name});
-        //if(cursor.getCount() > 0) {
-        // long update = db.update(USER_TABLE, contentValues, "name=?", new String[]{name});
-        //   if (update == -1) {
-        return true;
+        Cursor cursor = db.rawQuery("Select * From USER_TABLE where COLUMN_USER_NAME = ?", new String[] {String.valueOf(name)});
+        if(cursor.getCount() > 0) {
+            long update = db.update(USER_TABLE, contentValues, "name=?", new String[]{name});
+            if (update == -1) {
+                return false;
+            } else {
+                return true;
+            }
+        } else{
+            return false;
+        }
     }
-         /*  } else {
-               return true;
-           }
-       } else{
-               return false;
-           }
-       }*/
 
 
+
+
+
+    /* public Cursor getData() {
+         SQLiteDatabase db = this.getReadableDatabase();
+         Cursor cursor = db.rawQuery("Select * From USER_TABLE where COLUMN_USER_NAME = ?", null);
+         return cursor;
+     } */
     public List<CustomerClass> getEveryone() {
         List<CustomerClass> returnList = new ArrayList<>();
         String queryString = "Select * From " + USER_TABLE;
