@@ -178,6 +178,12 @@ public class countdownTimer extends AppCompatActivity implements View.OnClickLis
                 if(sets > 1) { //Try making this into a boolean.
                     restTimerStatus = TimerStatus.STARTED;
                     sets--;
+                    if(sets == 7){
+                        setText.setText("2");
+                    }
+                    if(sets == 1){
+                        setText.setText("1");
+                    }
                     startRestTimer();
                 }
             }

@@ -67,18 +67,19 @@ public class Database extends SQLiteOpenHelper {
         }
     }
 
-    public boolean updateDB(String name, int weight, int age, int feet, int inch) {
+    public boolean updateDB(String id, String name, String weight, String age, String feet, String inch) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COLUMN_USER_NAME, name);
-        contentValues.put(COLUMN_USER_WEIGHT, weight);
-        contentValues.put(COLUMN_USER_AGE, age);
-        contentValues.put(COLUMN_USER_FEET, feet);
-        contentValues.put(COLUMN_USER_INCH, inch);
+        contentValues.put("id", id);
+        contentValues.put("name", name);
+        contentValues.put("weight", weight);
+        contentValues.put("age", age);
+        contentValues.put("feet", feet);
+        contentValues.put("inch", inch);
         // contentValues.put(COLUMN_USER_GENDER, customerClass.getGender())
-        Cursor cursor = db.rawQuery("Select * From USER_TABLE where USER_NAME = ?", new String[] {String.valueOf(name)});
+        Cursor cursor = db.rawQuery("SELECT * FROM USER_TABLE where id = ?", new String[] {String.valueOf(id)});
        if(cursor.getCount() > 0) {
-           long update = db.update(USER_TABLE, contentValues, "name=?", new String[]{name});
+           long update = db.update("USER_TABLE", contentValues, "id=?", new String[]{id});
            if (update == -1) {
                return false;
            } else {
@@ -87,7 +88,7 @@ public class Database extends SQLiteOpenHelper {
        } else{
                return false;
            }
-       }
+    }
 
 
     public List<CustomerClass> getEveryone() {
