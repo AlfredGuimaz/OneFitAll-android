@@ -18,7 +18,7 @@ import java.util.List;
 
 public class UserInfo extends AppCompatActivity {
     Button ViewData, Update;
-    EditText Name, Weight, Feet, Inch, Age;
+    EditText Name, Weight, Feet, Inch, Age, Id;
     Database db;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,26 +75,13 @@ public class UserInfo extends AppCompatActivity {
         Update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                String idText = "0";
-                String nameTxt = Name.getText().toString();
-                String weightTxt = Weight.getText().toString();
-                //int finalWeightTxt = Integer.parseInt(weightTxt);
-                String feetTxt = Feet.getText().toString();
-                //int finalFeetTxt = Integer.parseInt(feetTxt);
-                String inchTxt = Inch.getText().toString();
-                //int finalInchTxt = Integer.parseInt(inchTxt);
-                String ageTxt = Age.getText().toString();
-                //int finalAgeTxt = Integer.parseInt(ageTxt);
-
-                boolean isUpdate = db.updateDB(idText, nameTxt, weightTxt, ageTxt, feetTxt, inchTxt/*nameTxt, finalWeightTxt, finalAgeTxt, finalFeetTxt, finalInchTxt*/);
+                String newID = Id.getText().toString();
+                boolean isUpdate = db.updateDB(newID, Name.getText().toString(), Integer.parseInt(Weight.getText().toString()), Integer.parseInt(Age.getText().toString()),Integer.parseInt(Feet.getText().toString()), Integer.parseInt(Inch.getText().toString()));
                 if (isUpdate == true) {
                     Toast.makeText(UserInfo.this, "User Updated", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(UserInfo.this, "Error Updating User", Toast.LENGTH_SHORT).show();
                 }
-
-
             }
         });
     }

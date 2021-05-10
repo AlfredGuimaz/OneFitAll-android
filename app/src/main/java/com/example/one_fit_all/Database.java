@@ -22,6 +22,7 @@ public class Database extends SQLiteOpenHelper {
     public static final String COLUMN_USER_AGE = "USER_AGE";
     public static final String COLUMN_USER_FEET = "USER_FEET";
     public static final String COLUMN_USER_INCH = "USER_INCH";
+    public static final String USER_ID = "ID";
     //public static final String COLUMN_USER_GENDER = "USER_GENDER";
 
 
@@ -33,7 +34,7 @@ public class Database extends SQLiteOpenHelper {
     //Called when database is first accessed, contains code to create new database/tables
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTableStatement = "CREATE TABLE " + USER_TABLE + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_USER_NAME + " TEXT, " + COLUMN_USER_WEIGHT + " INT, " + COLUMN_USER_AGE + " INT, " + COLUMN_USER_FEET + " INT, " + COLUMN_USER_INCH + " INT )";// + COLUMN_USER_GENDER + " TEXT )";
+        String createTableStatement = "CREATE TABLE " + USER_TABLE + " (" + USER_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_USER_NAME + " TEXT, " + COLUMN_USER_WEIGHT + " INT, " + COLUMN_USER_AGE + " INT, " + COLUMN_USER_FEET + " INT, " + COLUMN_USER_INCH + " INT )";// + COLUMN_USER_GENDER + " TEXT )";
 
         db.execSQL(createTableStatement);
     }
@@ -67,19 +68,18 @@ public class Database extends SQLiteOpenHelper {
         }
     }
 
-    public boolean updateDB(String id, String name, String weight, String age, String feet, String inch) {
+    public boolean updateDB(String id, String name, int weight, int age, int feet, int inch) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("id", id);
-        contentValues.put("name", name);
-        contentValues.put("weight", weight);
-        contentValues.put("age", age);
-        contentValues.put("feet", feet);
-        contentValues.put("inch", inch);
+        contentValues.put("USER_NAME", name);
+        contentValues.put("USER_WEIGHT", weight);
+        contentValues.put("USER_AGE", age);
+        contentValues.put("USER_FEET", feet);
+        contentValues.put("USER_INCH", inch);
         // contentValues.put(COLUMN_USER_GENDER, customerClass.getGender())
-        Cursor cursor = db.rawQuery("SELECT * FROM USER_TABLE where id = ?", new String[] {String.valueOf(id)});
+        Cursor cursor = db.rawQuery("Select * From USER_TABLE where ID = ?", new String[] {id});
        if(cursor.getCount() > 0) {
-           long update = db.update("USER_TABLE", contentValues, "id=?", new String[]{id});
+           long update = db.update(USER_TABLE, contentValues, "ID=?", new String[]{id});
            if (update == -1) {
                return false;
            } else {
@@ -88,7 +88,7 @@ public class Database extends SQLiteOpenHelper {
        } else{
                return false;
            }
-    }
+       }
 
 
     public List<CustomerClass> getEveryone() {
