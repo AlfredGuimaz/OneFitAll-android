@@ -18,7 +18,7 @@ import java.util.List;
 
 public class UserInfo extends AppCompatActivity {
     Button ViewData, Update;
-    EditText Name, Weight, Feet, Inch, Age, Id;
+    EditText Name2, Weight2, Feet2, Inch2, Age2, Id;
     Database db;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +29,11 @@ public class UserInfo extends AppCompatActivity {
         db = new Database(this);
         Update = findViewById(R.id.Update);
         //ViewAll = findViewById(R.id.ViewAll);
-        Name = findViewById(R.id.Name);
-        Weight = findViewById(R.id.Weight);
-        Feet = findViewById(R.id.Feet);
-        Inch = findViewById(R.id.Inch);
-        Age = findViewById(R.id.Age);
+        Name2 = findViewById(R.id.Name2);
+        Weight2 = findViewById(R.id.Weight2);
+        Feet2 = findViewById(R.id.Feet2);
+        Inch2 = findViewById(R.id.Inch2);
+        Age2 = findViewById(R.id.Age2);
         //  DB = new Database(this);
         ViewData = findViewById(R.id.ViewData);
 
@@ -76,7 +76,7 @@ public class UserInfo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String newID = Id.getText().toString();
-                boolean isUpdate = db.updateDB(newID, Name.getText().toString(), Integer.parseInt(Weight.getText().toString()), Integer.parseInt(Age.getText().toString()),Integer.parseInt(Feet.getText().toString()), Integer.parseInt(Inch.getText().toString()));
+                boolean isUpdate = db.updateDB(newID, Name2.getText().toString(), Integer.parseInt(Weight2.getText().toString()), Integer.parseInt(Age2.getText().toString()),Integer.parseInt(Feet2.getText().toString()), Integer.parseInt(Inch2.getText().toString()));
                 if (isUpdate == true) {
                     Toast.makeText(UserInfo.this, "User Updated", Toast.LENGTH_SHORT).show();
                 } else {
