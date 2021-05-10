@@ -30,6 +30,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -56,13 +57,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private float previousTotalSteps = 0;
     private TextView tv_stepHeader;
     private TextView tv_bottomStepCounter;
+    private TextView tv_userHeader;
     private EditText et_newGoal;
     private Button bt_newGaol;
     private Button bt_dropdownTitel;
     private LinearLayout ll_dropdownInfo;
     private MaterialCardView card_stepCounter;
+    private ProgressBar progressBar;
     private int goal;
-
 
 
 
@@ -99,8 +101,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         bt_newGaol = (Button) findViewById(R.id.bt_newGoal);
         loadData();
         card_stepCounter = (MaterialCardView) findViewById(R.id.card_stepCounter);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
         sensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
         stepSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+
 
 
         //fitBeats
@@ -229,6 +233,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             tv_stepHeader.setText(String.valueOf(currentStep));
             tv_bottomStepCounter.setText(currentStep+"/"+goal+" steps");
             //update progress bar in the future
+            int progress = currentStep/goal;
+            progressBar.setProgress(progress,true);
         }
     }
 
@@ -281,6 +287,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         goal = goalNew;
         int currentStep = (int)totalSteps - (int)previousTotalSteps;
         tv_bottomStepCounter.setText(currentStep+"/"+goal+" steps");
+        int progress = currentStep/goal;
+        progressBar.setProgress(progress,true);
     }
 
     //    Dont Touch Bellow function for Step Counter Functiom
