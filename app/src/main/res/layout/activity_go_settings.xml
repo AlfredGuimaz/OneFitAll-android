@@ -49,6 +49,16 @@
                 android:text="User Info"
                 android:textSize="20dp"
                 android:onClick="UserInfo"/>
+
+            <Button
+                android:id="@+id/fitbit"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:text="fitbit login"
+                android:textSize="20dp"
+                android:onClick="fitbit"/>
         </LinearLayout>
     </ScrollView>
 

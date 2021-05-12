@@ -34,7 +34,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         holder.tv_ID.setText(String.valueOf(everything.get(position).getId()));
         holder.tv_MuscleGroup.setText(everything.get(position).getmGroup());
         holder.tv_ExerciseType.setText(everything.get(position).geteType());
@@ -45,7 +45,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                WorkoutModel workoutModel = (WorkoutModel) everything. get(position);
+                WorkoutModel workoutModel = (WorkoutModel) everything.get(position);
                 DataBaseWorkoutHelper dataBaseWorkoutHelper = new DataBaseWorkoutHelper(context);
                 dataBaseWorkoutHelper.deleteOne(workoutModel);
 

@@ -4,24 +4,36 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
-    <uses-feature android:name="android.hardware.SensorManager"/>
-    <uses-feature android:name="android.hardware.Sensor"/>
-    <uses-feature android:name="android.hardware.SensorEvent"/>
-    <uses-feature android:name="android.hardware.SensorEventListener"/>
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+
+    <uses-feature android:name="android.hardware.SensorManager" />
+    <uses-feature android:name="android.hardware.Sensor" />
+    <uses-feature android:name="android.hardware.SensorEvent" />
+    <uses-feature android:name="android.hardware.SensorEventListener" />
 
     <queries>
         <package android:name="com.spotify.music" />
     </queries>
 
     <application
+        android:name=".FitbitAuthApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OneFitAll">
-        <activity android:name=".goViewWorkout"></activity>
+
+        <meta-data
+            android:name="com.example.one_fit_all.CLIENT_ID"
+            android:value="23B4DK"/>
+        <meta-data
+            android:name="com.example.one_fit_all.REDIRECT_URL"
+            android:value="https://finished"/>
+
+        <activity android:name=".fitbit_userData"></activity>
+        <activity android:name=".fitbit_rootActivity" />
+        <activity android:name=".goViewWorkout" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".goQuickWorkout" />
         <activity android:name=".goSettingsActivity" />

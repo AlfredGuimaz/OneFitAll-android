@@ -233,8 +233,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             tv_stepHeader.setText(String.valueOf(currentStep));
             tv_bottomStepCounter.setText(currentStep+"/"+goal+" steps");
             //update progress bar in the future
-            int progress = currentStep/goal;
-            progressBar.setProgress(progress,true);
+//            int progress = currentStep/goal;
+//            progressBar.setProgress(progress,true);
         }
     }
 

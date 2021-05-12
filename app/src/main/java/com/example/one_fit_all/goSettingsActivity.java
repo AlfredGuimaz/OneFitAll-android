@@ -76,6 +76,9 @@ public class goSettingsActivity extends AppCompatActivity {
     }
 
 
+    public void fitbit(View view) {
 
-
+        Intent intent = new Intent(this, fitbit_rootActivity.class);
+        startActivity(intent);
+    }
 }
